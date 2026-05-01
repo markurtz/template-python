@@ -1,0 +1,71 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# _build_container.yml — Reusable Container Builder
+#
+# Builds container images for the project. This workflow handles only the
+# build step. It returns the image name and tag, allowing calling workflows
+# to handle pushing, publishing, or vulnerability scanning.
+#
+# Inputs:
+#   build_type (required): "release", "post", "nightly", or "dev"
+#
+# Outputs:
+#   image_name — The name of the built container image
+#   image_tag  — The tag of the built container image
+#
+# Callers: development.yml, nightly.yml, release.yml
+# ─────────────────────────────────────────────────────────────────────────────
+name: "Build Container (Reusable)"
+
+on:
+  workflow_call:
+    inputs:
+      build_type:
+        description: "Type of build: release, post, nightly, or dev"
+        required: true
+        type: string
+    outputs:
+      image_name:
+        description: "The name of the built container image"
+        value: ${{ jobs.build-container.outputs.image_name }}
+      image_tag:
+        description: "The tag of the built container image"
+        value: ${{ jobs.build-container.outputs.image_tag }}
+
+permissions:
+  contents: read
+
+jobs:
+
+  build-container:
+    name: "Build Container (${{ inputs.build_type }})"
+    runs-on: ubuntu-latest
+    outputs:
+      image_name: ${{ steps.build.outputs.image_name }}
+      image_tag: ${{ steps.build.outputs.image_tag }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: "# TODO: Set up container toolchain"
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Set up Docker, Buildx, or other container tools.
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: set up container toolchain"
+          # exit 1  # Uncomment when enforcing implementation
+
+      - name: "# TODO: Build container"
+        id: build
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Build the container image.
+          # Example: docker build -t "my-app:${{ inputs.build_type }}" .
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: build container for ${{ inputs.build_type }}"
+          
+          IMAGE_NAME="my-app"
+          IMAGE_TAG="${{ inputs.build_type }}-${{ github.sha }}"
+          
+          echo "image_name=${IMAGE_NAME}" >> "$GITHUB_OUTPUT"
+          echo "image_tag=${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
+          # exit 1  # Uncomment when enforcing implementation

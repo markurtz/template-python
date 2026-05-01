@@ -1,0 +1,84 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# _quality.yml — Reusable Quality Gate
+#
+# Encapsulates quality checking, style/lint, and type checking.
+# Fails the pipeline if any of these checks fail.
+#
+# Callers:  development.yml, main.yml
+# ─────────────────────────────────────────────────────────────────────────────
+name: "Quality Gate (Reusable)"
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+
+  quality:
+    name: "Code Quality"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: "# TODO: Set up toolchain"
+        run: |
+          echo "TODO: set up toolchain for quality checks"
+          # exit 1
+
+      - name: "# TODO: Run quality checks"
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Run code quality analysis.
+          # Example (Python): ruff check .
+          # Example (Node.js): npm run lint:quality
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: run quality checks"
+          # exit 1
+
+  style:
+    name: "Code Style"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: "# TODO: Set up toolchain"
+        run: |
+          echo "TODO: set up toolchain for style checks"
+          # exit 1
+
+      - name: "# TODO: Run style checks"
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Run code formatting checks.
+          # Example (Python): black --check .
+          # Example (Node.js): prettier --check .
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: run style checks"
+          # exit 1
+
+  types:
+    name: "Type Checking"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: "# TODO: Set up toolchain"
+        run: |
+          echo "TODO: set up toolchain for type checks"
+          # exit 1
+
+      - name: "# TODO: Run type checks"
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Run static type checking.
+          # Example (Python): mypy .
+          # Example (Node.js): tsc --noEmit
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: run type checks"
+          # exit 1

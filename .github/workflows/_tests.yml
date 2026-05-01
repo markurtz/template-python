@@ -1,0 +1,109 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# _tests.yml — Reusable Test Runner
+#
+# Executes the project test suite using specified types and levels.
+#
+# Inputs:
+#   test_types        (required) — Comma-separated list: smoke, sanity, regression
+#   test_levels       (required) — Comma-separated list: unit, integration, e2e
+#   generate_coverage (optional) — Generate test coverage report (default: false)
+#   publish_results   (optional) — Upload test results/coverage (default: true)
+#   retention_days    (optional) — Days to retain artifacts (default: 7)
+#
+# Outputs:
+#   results_location  — Path to the uploaded test results artifact
+#   coverage_location — Path to the uploaded coverage artifact
+#
+# Callers: development.yml, main.yml, nightly.yml, release.yml, weekly.yml
+# ─────────────────────────────────────────────────────────────────────────────
+name: "Test Runner (Reusable)"
+
+on:
+  workflow_call:
+    inputs:
+      test_matrix:
+        description: "JSON array of test levels and types (e.g., '[{\"level\": \"unit\", \"types\": \"smoke, sanity\"}]')"
+        required: true
+        type: string
+      generate_coverage:
+        description: "Generate test coverage report"
+        required: false
+        type: boolean
+        default: false
+      publish_results:
+        description: "Publish test results as artifacts"
+        required: false
+        type: boolean
+        default: true
+      retention_days:
+        description: "Days to retain test artifacts"
+        required: false
+        type: number
+        default: 7
+    outputs:
+      results_location:
+        description: "Path to the test results artifact"
+        value: ${{ jobs.run-tests.outputs.results_location }}
+      coverage_location:
+        description: "Path to the coverage artifact"
+        value: ${{ jobs.run-tests.outputs.coverage_location }}
+
+permissions:
+  contents: read
+
+jobs:
+
+  run-tests:
+    name: "Run ${{ matrix.level }} Tests"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(inputs.test_matrix) }}
+    outputs:
+      results_location: "reports/"
+      coverage_location: "coverage/"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: "# TODO: Set up language runtime and test dependencies"
+        run: |
+          echo "TODO: set up test environment"
+          # exit 1
+
+      - name: "# TODO: Run tests"
+        run: |
+          # ───────────────────────────────────────────────────────────────────
+          # PLACEHOLDER — Execute the test suite for the requested scope.
+          # Use inputs to filter what tests run.
+          # Level: ${{ matrix.level }}
+          # Types: ${{ matrix.types }}
+          # Coverage: ${{ inputs.generate_coverage }}
+          # ───────────────────────────────────────────────────────────────────
+          echo "TODO: run tests matching level '${{ matrix.level }}' and types '${{ matrix.types }}'"
+          
+          mkdir -p reports/ coverage/
+          echo "dummy report" > reports/test-report.xml
+          if [ "${{ inputs.generate_coverage }}" == "true" ]; then
+            echo "dummy coverage" > coverage/coverage.xml
+          fi
+          # exit 1
+
+      - name: Upload test results
+        if: ${{ inputs.publish_results }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: test-results-${{ matrix.level }}-${{ github.run_id }}
+          path: reports/
+          retention-days: ${{ inputs.retention_days }}
+          if-no-files-found: warn
+
+      - name: Upload coverage report
+        if: ${{ inputs.publish_results && inputs.generate_coverage }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: coverage-report-${{ matrix.level }}-${{ github.run_id }}
+          path: coverage/
+          retention-days: ${{ inputs.retention_days }}
+          if-no-files-found: warn
