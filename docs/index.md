@@ -13,8 +13,12 @@ hide:
 
 A production-ready Apache 2.0 template that gives you a fully structured, documented, and CI/CD-enabled starting point — so you can focus on building, not scaffolding.
 
+<!-- mdformat off -->
+
 [Get Started](getting-started/index.md){ .md-button .md-button--primary }
 \[View on GitHub\](https://github.com/{{ org_name }}/{{ project_name }}){ .md-button }
+
+<!-- mdformat on -->
 
 </div>
 </div>
@@ -83,7 +87,11 @@ For advanced installation options (from source, Docker, etc.) see the [Installat
 
 ## Links
 
+<!-- mdformat off -->
+
 - :material-github: \[GitHub Repository\](https://github.com/{{ org_name }}/{{ project_name }})
 - :material-map-marker-path: \[Roadmap\]({{ roadmap_url }})
 - :material-post-outline: \[Blog\]({{ blog_url }})
 - :material-slack: \[Slack Community\]({{ slack_url }})
+
+<!-- mdformat on -->

@@ -21,7 +21,7 @@ There are many ways to contribute to `project_name`, and not all of them involve
 - **Suggesting Features:** Propose new features or enhancements that could benefit the project.
 - **Improving Documentation:** Fix typos, add examples, or write new guides.
 - **Writing Code:** Fix bugs, implement features, or improve performance.
-- **Helping Others:** Answer questions in [Discussions](https://github.com/%7B%7Borganization%7D%7D/project_name/discussions) or issue comments.
+- **Helping Others:** Answer questions in [Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions) or issue comments.
 
 For general questions and help, please see [SUPPORT.md](SUPPORT.md).
 

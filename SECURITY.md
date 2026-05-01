@@ -20,7 +20,7 @@ Please check the table below for the versions of `project_name` that are current
 
 If you discover a security vulnerability, please bring it to our attention right away using one of the following methods:
 
-1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/%7B%7Borganization%7D%7D/project_name/security/advisories)** of this repository.
+1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/security/advisories)** of this repository.
 1. **Email:** Send your report directly to **[INSERT EMAIL ADDRESS OR SECURITY CONTACT]**. *(Optional: Encrypt your email using our PGP key: [INSERT PGP KEY LINK/FINGERPRINT])*
 
 ### What to Include in Your Report

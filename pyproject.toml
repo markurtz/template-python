@@ -42,6 +42,9 @@ docs = [
     "pymdown-extensions",
 ]
 
+[project.scripts]
+project_name = "project_name.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/{{org_name}}/{{project_name}}"
 Repository = "https://github.com/{{org_name}}/{{project_name}}.git"
@@ -118,18 +121,18 @@ template = "default"
 
 [tool.hatch.envs.test.scripts]
 # Standard runs (no coverage)
-all = "pytest {args:tests}"
-unit = "pytest {args:tests/unit}"
-integration = "pytest {args:tests/integration}"
-e2e = "pytest {args:tests/e2e}"
+all = "pytest tests {args}"
+unit = "pytest tests/unit {args}"
+integration = "pytest tests/integration {args}"
+e2e = "pytest tests/e2e {args}"
 
 # Coverage specific runs
 # These use --cov=src to ensure only your source code is measured
-cov-unit = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/unit/htmlcov {args:tests/unit}"
-cov-integration = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/integration/htmlcov {args:tests/integration}"
-cov-e2e = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/e2e/htmlcov {args:tests/e2e}"
+cov-unit = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/unit/htmlcov tests/unit {args}"
+cov-integration = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/integration/htmlcov tests/integration {args}"
+cov-e2e = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/e2e/htmlcov tests/e2e {args}"
 # Full suite coverage
-cov-all = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/all/htmlcov {args:tests}"
+cov-all = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/all/htmlcov tests {args}"
 
 # ------------------------------------------------------------------------------
 # Documentation: MkDocs

@@ -20,6 +20,7 @@ repos:
         language: python
         additional_dependencies:
           - hatch
+          - uv
         types_or:
           - python
           - markdown
@@ -31,6 +32,7 @@ repos:
         language: python
         additional_dependencies:
           - hatch
+          - uv
         types:
           - python
         pass_filenames: false

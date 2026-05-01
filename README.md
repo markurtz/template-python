@@ -101,7 +101,7 @@ This project has just been instantiated from the template repository. Keep an ey
 pip install project_name
 ```
 
-For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://%7B%7Borganization%7D%7D.github.io/project_name/getting-started/)**.
+For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://%7B%7Borganization%7D%7D.github.io/%7B%7Bproject_name%7D%7D/getting-started/)**.
 
 ## Core Concepts
 

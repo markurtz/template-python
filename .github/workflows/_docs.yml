@@ -58,7 +58,7 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
       - name: Install hatch and trigger docs sync
         run: |
-          pip install hatch
+          pip install uv hatch
           hatch run docs:mkdocs --version
       - name: Download unit test coverage
         if: ${{ inputs.include_coverage }}

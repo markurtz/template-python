@@ -37,6 +37,14 @@ The Reference section contains the complete technical documentation for `{{ proj
 
   *Coming soon.*
 
+- :material-test-tube: **Test Coverage**
+
+  ______________________________________________________________________
+
+  Coverage reports are generated during CI/CD or locally.
+
+  Run `hatch run test:cov-all` to generate HTML reports in `docs/coverage/`.
+
 </div>
 
 ## Generating API Reference Docs
