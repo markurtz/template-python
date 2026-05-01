@@ -1,1 +1,1 @@
---8<-- "AGENTS.md"
+--8\<-- "AGENTS.md"

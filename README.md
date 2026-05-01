@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/branding/logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="docs/assets/branding/logo-light.svg">
-    <img alt="{{project_name}} Logo" src="docs/assets/branding/logo-light.svg" width="400">
+    <img alt="project_name Logo" src="docs/assets/branding/logo-light.svg" width="400">
   </picture>
 </p>
 
@@ -12,33 +12,33 @@
 
 <p align="center">
   <!-- Package & Release Status -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/releases">
-    <img src="https://img.shields.io/github/v/release/{{organization}}/{{project_name}}?label=Release" alt="GitHub Release">
+  <a href="https://github.com/{{organization}}/project_name/releases">
+    <img src="https://img.shields.io/github/v/release/{{organization}}/project_name?label=Release" alt="GitHub Release">
   </a>
-  <a href="https://pypi.org/project/{{project_name}}/">
-    <img src="https://img.shields.io/pypi/v/{{project_name}}?label=PyPI" alt="PyPI Release">
+  <a href="https://pypi.org/project/project_name/">
+    <img src="https://img.shields.io/pypi/v/project_name?label=PyPI" alt="PyPI Release">
   </a>
-  <a href="https://pypi.org/project/{{project_name}}/">
-    <img src="https://img.shields.io/pypi/pyversions/{{project_name}}?label=Python" alt="Supported Python Versions">
+  <a href="https://pypi.org/project/project_name/">
+    <img src="https://img.shields.io/pypi/pyversions/project_name?label=Python" alt="Supported Python Versions">
   </a>
   <br/>
   <!-- CI/CD & Build Status -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/actions/workflows/main.yml">
-    <img src="https://github.com/{{organization}}/{{project_name}}/actions/workflows/main.yml/badge.svg" alt="CI Status">
+  <a href="https://github.com/{{organization}}/project_name/actions/workflows/main.yml">
+    <img src="https://github.com/{{organization}}/project_name/actions/workflows/main.yml/badge.svg" alt="CI Status">
   </a>
   <!-- Uncomment to display code coverage:
-  <a href="https://codecov.io/gh/{{organization}}/{{project_name}}">
-    <img src="https://codecov.io/gh/{{organization}}/{{project_name}}/branch/main/graph/badge.svg" alt="Coverage">
+  <a href="https://codecov.io/gh/{{organization}}/project_name">
+    <img src="https://codecov.io/gh/{{organization}}/project_name/branch/main/graph/badge.svg" alt="Coverage">
   </a>
   -->
   <br/>
   <!-- Issues & Support -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/issues?q=is%3Aissue+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-closed/{{organization}}/{{project_name}}?label=Issues%20Closed" alt="Closed Issues">
+  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-closed/{{organization}}/project_name?label=Issues%20Closed" alt="Closed Issues">
   </a>
   <!-- Uncomment to display open issues:
-  <a href="https://github.com/{{organization}}/{{project_name}}/issues?q=is%3Aissue+is%3Aopen">
-    <img src="https://img.shields.io/github/issues/{{organization}}/{{project_name}}?label=Issues%20Open" alt="Open Issues">
+  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aopen">
+    <img src="https://img.shields.io/github/issues/{{organization}}/project_name?label=Issues%20Open" alt="Open Issues">
   </a>
   -->
   <a href="https://opensource.org/licenses/Apache-2.0">
@@ -47,14 +47,14 @@
 </p>
 
 <p align="center">
-  <a href="https://{{organization}}.github.io/{{project_name}}">Documentation</a> |
+  <a href="https://{{organization}}.github.io/project_name">Documentation</a> |
   <a href="https://blog.{{organization}}.org">Blog</a> |
-  <a href="https://github.com/{{organization}}/{{project_name}}/milestones">Roadmap</a> |
+  <a href="https://github.com/{{organization}}/project_name/milestones">Roadmap</a> |
   <a href="https://slack.{{organization}}.org">Slack</a> |
   <a href="https://calendar.{{organization}}.org">Weekly Syncs</a>
 </p>
 
----
+______________________________________________________________________
 
 ## Overview
 
@@ -66,11 +66,11 @@
   </picture>
 </p>
 
-Welcome to the {{project_name}} template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
+Welcome to the project_name template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, simply find and replace all instances of `{{project_name}}` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
+To use this template, simply find and replace all instances of `project_name` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
 
-### Why Use {{project_name}}?
+### Why Use project_name?
 
 - **Consistency:** Enforces a standardized layout and structure across your organization's repositories.
 - **Speed:** Bootstraps your project with pre-configured Actions, badges, and templates so you don't start from scratch.
@@ -78,19 +78,18 @@ To use this template, simply find and replace all instances of `{{project_name}}
 
 ### Comparisons
 
-When evaluating {{project_name}} against other templates, consider the following differences:
+When evaluating project_name against other templates, consider the following differences:
 
-| Feature | {{project_name}} Template | Standard GitHub Init | Cookiecutter / Copier |
-| :--- | :--- | :--- | :--- |
-| **Setup Speed** | Very Fast | Fast | Slower (requires CLI tool) |
-| **Visual Assets** | Pre-configured Light/Dark assets | None | Varies |
-| **CI/CD Built-in** | Yes (GitHub Actions) | No | Optional |
-| **Complexity** | Low (Find and Replace) | None | Medium (Jinja templates) |
-
+| Feature            | project_name Template            | Standard GitHub Init | Cookiecutter / Copier      |
+| :----------------- | :------------------------------- | :------------------- | :------------------------- |
+| **Setup Speed**    | Very Fast                        | Fast                 | Slower (requires CLI tool) |
+| **Visual Assets**  | Pre-configured Light/Dark assets | None                 | Varies                     |
+| **CI/CD Built-in** | Yes (GitHub Actions)             | No                   | Optional                   |
+| **Complexity**     | Low (Find and Replace)           | None                 | Medium (Jinja templates)   |
 
 ## What's New
 
-**Welcome to the {{project_name}} Launch!**
+**Welcome to the project_name Launch!**
 
 This project has just been instantiated from the template repository. Keep an eye on this section for future release highlights, new features, and community announcements!
 
@@ -99,32 +98,32 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-<!-- INSERT INSTALLATION COMMAND HERE -->
-# e.g., npm install {{project_name}} OR pip install {{project_name}} OR cargo add {{project_name}}
+pip install project_name
 ```
 
-For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://{{organization}}.github.io/{{project_name}}/getting-started/)**.
+For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://%7B%7Borganization%7D%7D.github.io/project_name/getting-started/)**.
 
 ## Core Concepts
 
-<!-- Explain the foundational concepts or primitives that your project relies on. -->
+This project is built using modern Python tooling, ensuring a stable and typed foundation. It utilizes Pydantic for data validation and Ruff/Mypy for code quality.
 
 ### Component Architecture
 
 The template is organized into several key areas:
+
 - `docs/`: Stores your documentation and branding assets.
 - `src/` (or your primary package directory): The core application logic.
 - `tests/`: Automated tests to ensure code quality.
 
 ## Advanced Usage
 
-<!-- Provide examples of more complex workflows, custom configurations, or integrations. -->
+Please check the [`docs/examples/`](docs/examples/) directory for advanced examples and configurations.
 
 ## General
 
 ### Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details. For development setup, check out [DEVELOPING.md](DEVELOPING.md). 
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details. For development setup, check out [DEVELOPING.md](DEVELOPING.md).
 Please ensure you follow our [Code of Conduct](CODE_OF_CONDUCT.md) in all interactions.
 
 ### Support and Security
@@ -148,12 +147,12 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 If you use this template or the resulting software in your research, please cite it using the following BibTeX entry:
 
 ```bibtex
-@software{{{project_name}},
+@software{project_name,
   author = {{{organization}}},
-  title = {{{project_name}}},
+  title = {project_name},
   version = {{{version}}},
   month = {{{month}}},
   year = {2026},
-  url = {https://github.com/{{organization}}/{{project_name}}}
+  url = {https://github.com/{{organization}}/project_name}
 }
 ```

@@ -1,3 +1,4 @@
+---
 # =============================================================================
 # dependabot.yml — Automated Dependency Management
 #
@@ -13,7 +14,6 @@
 # After PRs are opened, weekly.yml surfaces them via Slack for human review.
 # =============================================================================
 version: 2
-
 updates:
   # ── GitHub Actions ──────────────────────────────────────────────────────────
   - package-ecosystem: "github-actions"
@@ -35,29 +35,28 @@ updates:
       prefix: "chore(actions)"
     # TODO: Add at least one reviewer here! Without an assigned reviewer,
     # Dependabot PRs often rot in the queue and are ignored.
-    reviewers: []      # e.g., ["maintainer1", "org/platform-team"]
-    assignees: []      # e.g., ["maintainer1"]
+    reviewers: []  # e.g., ["maintainer1", "org/platform-team"]
+    assignees: []  # e.g., ["maintainer1"]
     open-pull-requests-limit: 5
 
   # ── Python (pip) ────────────────────────────────────────────────────────────
-  # Uncomment when this repository contains Python dependencies.
-  # - package-ecosystem: "pip"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "weekly"
-  #     day: "monday"
-  #     time: "09:00"
-  #     timezone: "America/New_York"
-  #   groups:
-  #     python-dependencies:
-  #       patterns:
-  #         - "*"
-  #   labels:
-  #     - "dependencies"
-  #     - "python"
-  #   commit-message:
-  #     prefix: "chore(deps)"
-  #   open-pull-requests-limit: 5
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
 
   # ── Node.js (npm) ────────────────────────────────────────────────────────────
   # Uncomment when this repository contains a package.json.

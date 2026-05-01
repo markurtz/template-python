@@ -5,18 +5,19 @@
 
 ## Project Context
 
-**`{{project_name}}`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
-**Primary language:** `<!-- TODO: Replace with your stack -->`  
-**Package manager:** `<!-- TODO: e.g., pip / npm -->`  
+**`project_name`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
+**Primary language:** `Python 3.10+`\
+**Package manager:** `Hatch`
 
 ## Critical Constraints
 
 > [!CAUTION]
+>
 > 1. **Never commit secrets.** Do not add API keys, tokens, or credentials anywhere.
-> 2. **Do not modify `LICENSE` or `NOTICE`.** These are legally binding.
-> 3. **Do not modify workflow trigger conditions** without human review.
-> 4. **All new source files must include the Apache 2.0 copyright header.**
-> 5. **Use `{{double_braces}}` for template placeholders.** Never hard-code them.
+> 1. **Do not modify `LICENSE` or `NOTICE`.** These are legally binding.
+> 1. **Do not modify workflow trigger conditions** without human review.
+> 1. **All new source files must include the Apache 2.0 copyright header.**
+> 1. **Use `{{double_braces}}` for template placeholders.** Never hard-code them.
 
 ## Repository Layout
 
@@ -27,10 +28,11 @@
 
 ## Executable Commands
 
-- **Linting:** `<!-- TODO: language specific lint command -->`
-- **Testing:** `<!-- TODO: language specific test command -->`
-- **Docs:** `mkdocs serve` / `mkdocs build`
-- **Build:** `<!-- TODO: language specific build command -->`
+- **Linting:** `hatch run lint:check` (Ruff & mdformat) and `hatch run types:check` (Mypy)
+- **Pre-commit:** `pre-commit run --all-files` (Runs formatting and quality checks)
+- **Testing:** `hatch run test:all` (Pytest) and `hatch run test:cov-all` (Coverage)
+- **Docs:** `hatch run docs:serve` / `hatch run docs:build`
+- **Build:** `hatch build`
 
 ## Code Style & Patterns
 
@@ -52,7 +54,7 @@
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `{{project_name}}`, `{{organization}}`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `{{organization}}`).
 
 ## Agent Notes
 

@@ -1,10 +1,9 @@
-# `{{project_name}}` - Utility Scripts
+# `project_name` - Utility Scripts
 
-This directory contains utility scripts designed to assist with local development, maintenance, and automation tasks for `{{project_name}}`.
+This directory contains utility scripts designed to assist with local development, maintenance, and automation tasks for `project_name`.
 
 > [!NOTE]
 > These scripts are intended for developer and CI/CD use only and are **not** distributed as part of the final application package.
-
 
 ## Usage Guidelines
 
@@ -35,14 +34,12 @@ If you are adding or modifying a script in this directory, please ensure it adhe
 - **Provide Help:** Scripts should ideally accept a `-h` or `--help` flag that outputs usage instructions.
 - **Log Clearly:** Prefix output with `[INFO]`, `[WARN]`, or `[ERROR]` to make CI/CD logs easier to read.
 
-
 ## Available Scripts
 
-| Script | Description |
-| :--- | :--- |
-| `setup_dev_env.sh` | *(Example)* Bootstraps the local development environment. |
-| `release.sh` | *(Example)* Automates the version bumping and release tagging process. |
-
+| Script             | Description                                                            |
+| :----------------- | :--------------------------------------------------------------------- |
+| `setup_dev_env.sh` | *(Example)* Bootstraps the local development environment.              |
+| `release.sh`       | *(Example)* Automates the version bumping and release tagging process. |
 
 ## Contributing
 

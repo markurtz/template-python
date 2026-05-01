@@ -1,3 +1,4 @@
+---
 # ─────────────────────────────────────────────────────────────────────────────
 # _quality.yml — Reusable Quality Gate
 #
@@ -7,78 +8,52 @@
 # Callers:  development.yml, main.yml
 # ─────────────────────────────────────────────────────────────────────────────
 name: "Quality Gate (Reusable)"
-
 on:
   workflow_call:
-
+    inputs:
+      python_versions:
+        description: "JSON array of Python versions"
+        required: true
+        type: string
 permissions:
   contents: read
   security-events: write
-
 jobs:
-
   quality:
-    name: "Code Quality"
+    name: "Quality (Python ${{ matrix.python-version }})"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ${{ fromJson(inputs.python_versions) }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Set up toolchain"
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: "Set up Python ${{ matrix.python-version }}"
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: "Set up toolchain"
+        uses: pypa/hatch@install
+      - name: "Run quality checks"
         run: |
-          echo "TODO: set up toolchain for quality checks"
-          # exit 1
-
-      - name: "# TODO: Run quality checks"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Run code quality analysis.
-          # Example (Python): ruff check .
-          # Example (Node.js): npm run lint:quality
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run quality checks"
-          # exit 1
-
-  style:
-    name: "Code Style"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Set up toolchain"
-        run: |
-          echo "TODO: set up toolchain for style checks"
-          # exit 1
-
-      - name: "# TODO: Run style checks"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Run code formatting checks.
-          # Example (Python): black --check .
-          # Example (Node.js): prettier --check .
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run style checks"
-          # exit 1
-
+          hatch run lint:pre-commit
   types:
-    name: "Type Checking"
+    name: "Types (Python ${{ matrix.python-version }})"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ${{ fromJson(inputs.python_versions) }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Set up toolchain"
-        run: |
-          echo "TODO: set up toolchain for type checks"
-          # exit 1
-
-      - name: "# TODO: Run type checks"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Run static type checking.
-          # Example (Python): mypy .
-          # Example (Node.js): tsc --noEmit
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run type checks"
-          # exit 1
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: "Set up Python ${{ matrix.python-version }}"
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: "Set up toolchain"
+        uses: pypa/hatch@install
+      - name: "Run type checks"
+        run: |-
+          hatch run types:check

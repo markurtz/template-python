@@ -1,6 +1,6 @@
-# Contributing to {{project_name}}
+# Contributing to project_name
 
-First off, thank you for considering contributing to `{{project_name}}`! It's people like you that make this project great.
+First off, thank you for considering contributing to `project_name`! It's people like you that make this project great.
 
 ## Code of Conduct
 
@@ -15,13 +15,13 @@ If you discover a security issue, please refer to our [Security Policy](SECURITY
 
 ## How Can I Contribute?
 
-There are many ways to contribute to `{{project_name}}`, and not all of them involve writing code:
+There are many ways to contribute to `project_name`, and not all of them involve writing code:
 
 - **Reporting Bugs:** Help us improve by submitting detailed bug reports via our issue tracker.
 - **Suggesting Features:** Propose new features or enhancements that could benefit the project.
 - **Improving Documentation:** Fix typos, add examples, or write new guides.
 - **Writing Code:** Fix bugs, implement features, or improve performance.
-- **Helping Others:** Answer questions in [Discussions](https://github.com/{{organization}}/{{project_name}}/discussions) or issue comments.
+- **Helping Others:** Answer questions in [Discussions](https://github.com/%7B%7Borganization%7D%7D/project_name/discussions) or issue comments.
 
 For general questions and help, please see [SUPPORT.md](SUPPORT.md).
 
@@ -32,6 +32,7 @@ If you are contributing code, please follow these structured steps:
 ### 1. Development Setup
 
 Before you start coding, please refer to our [Development Guide](DEVELOPING.md) (`DEVELOPING.md`) for detailed instructions on:
+
 - Setting up your local environment
 - Installing dependencies
 - Running the test suite
@@ -44,11 +45,11 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ### 3. Making Changes
 
-1. **Fork the Repository:** Fork the `{{project_name}}` repository to your GitHub account.
-2. **Create a Branch:** Create a new branch from `main` for your work (e.g., `git checkout -b feat/add-new-feature`).
-3. **Write Code:** Implement your changes, adhering to the project's coding standards.
-4. **Write Tests:** Add unit tests or integration tests for your changes to ensure stability.
-5. **Run Tests:** Ensure all tests and linters pass locally before committing.
+1. **Fork the Repository:** Fork the `project_name` repository to your GitHub account.
+1. **Create a Branch:** Create a new branch from `main` for your work (e.g., `git checkout -b feat/add-new-feature`).
+1. **Write Code:** Implement your changes, adhering to the project's coding standards.
+1. **Write Tests:** Add unit tests or integration tests for your changes to ensure stability.
+1. **Run Tests:** Ensure all tests and linters pass locally before committing.
 
 ### 4. Committing Your Changes
 
@@ -59,11 +60,11 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 ### 5. Submitting a Pull Request
 
 1. **Push your branch:** `git push origin your-branch-name`.
-2. **Open a Pull Request:** Open a PR against the `main` branch of the upstream repository.
-3. **Fill out the PR Template:** Provide a clear description of your changes, link to any relevant issues (e.g., `Closes #123`), and complete any required checklists.
-4. **Pass CI:** Ensure all GitHub Actions CI checks pass.
-5. **Review:** Address any feedback from the maintainers. Once approved and checks pass, a maintainer will merge your PR.
+1. **Open a Pull Request:** Open a PR against the `main` branch of the upstream repository.
+1. **Fill out the PR Template:** Provide a clear description of your changes, link to any relevant issues (e.g., `Closes #123`), and complete any required checklists.
+1. **Pass CI:** Ensure all GitHub Actions CI checks pass.
+1. **Review:** Address any feedback from the maintainers. Once approved and checks pass, a maintainer will merge your PR.
 
 ## Licensing
 
-By contributing to `{{project_name}}`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
+By contributing to `project_name`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).

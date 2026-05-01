@@ -1,3 +1,4 @@
+---
 # ─────────────────────────────────────────────────────────────────────────────
 # _build_package.yml — Reusable Package Builder
 #
@@ -15,7 +16,6 @@
 # Callers: development.yml, nightly.yml, release.yml
 # ─────────────────────────────────────────────────────────────────────────────
 name: "Build Package (Reusable)"
-
 on:
   workflow_call:
     inputs:
@@ -30,12 +30,9 @@ on:
       build_metadata:
         description: "Metadata regarding the build (e.g. SHA256)"
         value: ${{ jobs.build-package.outputs.metadata }}
-
 permissions:
   contents: read
-
 jobs:
-
   build-package:
     name: "Build Package (${{ inputs.build_type }})"
     runs-on: ubuntu-latest
@@ -44,41 +41,22 @@ jobs:
       metadata: ${{ steps.build.outputs.metadata }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Set up build toolchain"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Install tools and dependencies for packaging.
-          # Example (Python): pip install build
-          # Example (Node.js): npm ci
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: set up build toolchain"
-          # exit 1  # Uncomment when enforcing implementation
-
-      - name: "# TODO: Build package"
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: "Set up build toolchain"
+        uses: pypa/hatch@install
+      - name: "Build package"
         id: build
         run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Compile/package the distributable artifact.
-          # The output must land in a specific directory (e.g., dist/)
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: build project for ${{ inputs.build_type }}"
-          
-          # Simulate build output directory creation
-          mkdir -p dist/
-          echo "dummy package content" > dist/dummy.pkg
-          
+          hatch build
+
           # Output the location
           echo "location=dist/" >> "$GITHUB_OUTPUT"
-          
-          # Optional: compute SHA256 or other metadata
+
+          # Compute SHA256 or other metadata
           SHA=$(find dist/ -type f | sort | xargs sha256sum | sha256sum | awk '{print $1}')
           echo "metadata=${SHA}" >> "$GITHUB_OUTPUT"
-          # exit 1  # Uncomment when enforcing implementation
-
       - name: Upload build artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
           name: build-artifact-${{ inputs.build_type }}-${{ github.run_id }}
           path: dist/

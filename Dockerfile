@@ -1,14 +1,13 @@
 # ---------------------------------------------------------
-# {{project_name}} Dockerfile
+# project_name Dockerfile
 # Licensed under the Apache License, Version 2.0
 # ---------------------------------------------------------
-# Standardized Multi-stage Dockerfile Template
+# Standardized Multi-stage Dockerfile Template for Python
 
 # ---------------------------------------------------------
 # Build Stage
 # ---------------------------------------------------------
-# Choose an appropriate base image for building (e.g., ubuntu, alpine, node, golang)
-FROM ubuntu:24.04 AS builder
+FROM python:3.10-slim AS builder
 
 # Set working directory
 WORKDIR /app
@@ -18,40 +17,38 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# ---------------------------------------------------------
-# [DEPENDENCIES]
-# Copy package manifests (package.json, Cargo.toml, go.mod, etc.) 
-# and install dependencies to leverage Docker layer caching.
-# Example: 
-# COPY package*.json ./
-# RUN npm ci
-# ---------------------------------------------------------
+# Install uv for fast dependency management
+RUN pip install uv hatch
+
+# Copy package manifests and install dependencies
+COPY pyproject.toml README.md ./
+# Create a dummy src directory to satisfy hatch build if needed
+RUN mkdir -p src/project_name && touch src/project_name/__init__.py
+RUN uv pip install --system --no-cache -e .
 
 # Copy application source code
 COPY src/ ./src/
 
 # ---------------------------------------------------------
-# [BUILD]
-# Run your compilation or build step here.
-# Example:
-# RUN npm run build
-# RUN make build
+# Build any required distribution artifacts
 # ---------------------------------------------------------
+RUN hatch build
 
 # ---------------------------------------------------------
 # Runtime Stage
 # ---------------------------------------------------------
-# Choose a minimal base image for runtime (e.g., ubuntu, alpine, distroless)
-FROM ubuntu:24.04
+FROM python:3.10-slim
 
 # OCI Standard Labels
-LABEL org.opencontainers.image.title="{{project_name}}"
-LABEL org.opencontainers.image.description="Production-ready application container"
+LABEL org.opencontainers.image.title="project_name"
+LABEL org.opencontainers.image.description="Production-ready Python application container"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
-LABEL org.opencontainers.image.source="https://github.com/{{organization}}/{{project_name}}"
+LABEL org.opencontainers.image.source="https://github.com/{{organization}}/project_name"
 
 # Define environment variables
-ENV APP_ENV=production
+ENV APP_ENV=production \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
 
 # Set working directory
 WORKDIR /app
@@ -59,16 +56,10 @@ WORKDIR /app
 # Create a non-root user and set permissions
 RUN useradd -m appuser && chown -R appuser /app
 
-# ---------------------------------------------------------
-# [RUNTIME_ARTIFACTS]
-# Copy necessary built artifacts from the builder stage.
-# Example:
-# COPY --from=builder --chown=appuser:appuser /app/dist ./dist
-# COPY --from=builder --chown=appuser:appuser /app/bin/server ./server
-# ---------------------------------------------------------
-
-# Copy generic source files if needed (uncomment or modify as required)
-# COPY --chown=appuser:appuser src/ ./src/
+# Install runtime dependencies (or copy from builder if using a virtualenv)
+# For simplicity, we copy the project and install it
+COPY --from=builder /app/dist/*.whl ./
+RUN pip install *.whl && rm *.whl
 
 # Switch to the non-root user for security
 USER appuser
@@ -77,5 +68,4 @@ USER appuser
 EXPOSE 8080
 
 # Define the command to run the application
-# Replace with the language-specific startup command (e.g., ["node", "dist/index.js"])
-CMD ["/bin/sh", "-c", "echo 'Please define a runtime command in the Dockerfile!'; exit 1"]
+CMD ["python", "-m", "project_name"]

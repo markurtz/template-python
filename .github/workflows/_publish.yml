@@ -1,3 +1,4 @@
+---
 # ─────────────────────────────────────────────────────────────────────────────
 # _publish.yml — Reusable Artifact Publisher
 #
@@ -11,7 +12,6 @@
 # Callers: nightly.yml, release.yml
 # ─────────────────────────────────────────────────────────────────────────────
 name: "Publish Artifacts (Reusable)"
-
 on:
   workflow_call:
     inputs:
@@ -24,29 +24,19 @@ on:
         description: "The type of build (e.g., nightly, release)"
         required: true
         type: string
-
 permissions:
   contents: read
+  id-token: write  # For PyPI OIDC trusted publishing
   packages: write  # To publish to GitHub Container Registry or GitHub Packages
-
 jobs:
-
   publish:
     name: "Publish (${{ inputs.build_type }})"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Publish artifacts"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Publish artifacts to a registry.
-          #
-          # Examples:
-          #   Python (PyPI):      twine upload ${{ inputs.build_location }}/*
-          #   Node.js (npm):      npm publish
-          #   Container (GHCR):   docker push ...
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: publish artifacts located in ${{ inputs.build_location }} for build type ${{ inputs.build_type }}"
-          # exit 1  # Uncomment when enforcing implementation
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: Publish to PyPI
+        if: ${{ inputs.build_location != '' }}
+        uses: pypa/gh-action-pypi-publish@81e9d935c883d0b210363ab89cf05f3894778450  # v1.8.14
+        with:
+          packages-dir: ${{ inputs.build_location }}

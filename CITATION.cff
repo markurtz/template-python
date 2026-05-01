@@ -3,14 +3,14 @@
 # For more information on the CFF format, see: https://citation-file-format.github.io/
 
 cff-version: 1.2.0
-title: "{{project_name}}"
+title: "project_name"
 message: "If you use this software, please cite it as below."
 type: software
 version: "{{version}}"
 date-released: "{{date_released}}"
 license: Apache-2.0
 
-# You can list individual authors or an organization. 
+# You can list individual authors or an organization.
 # This defaults to the organization to match the README's BibTeX.
 authors:
   - name: "{{organization}}"
@@ -18,5 +18,5 @@ authors:
 #    given-names: "{{author_given_name}}"
 #    orcid: "https://orcid.org/{{orcid}}"
 
-repository-code: "https://github.com/{{organization}}/{{project_name}}"
-url: "https://{{organization}}.github.io/{{project_name}}"
+repository-code: "https://github.com/{{organization}}/project_name"
+url: "https://{{organization}}.github.io/project_name"

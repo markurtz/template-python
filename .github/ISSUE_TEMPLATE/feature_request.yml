@@ -1,13 +1,14 @@
+---
 name: Feature Request
-description: Suggest an idea for {{project_name}}
-labels: ["enhancement"]
+description: Suggest an idea for project_name
+labels:
+  - "enhancement"
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to suggest a feature for {{project_name}}!
-        
-        Before submitting, please ensure you have searched our existing [Issues](https://github.com/{{organization}}/{{project_name}}/issues) and [Discussions](https://github.com/{{organization}}/{{project_name}}/discussions) to see if this feature has already been requested.
+        Thanks for taking the time to suggest a feature for project_name!
+        Before submitting, please ensure you have searched our existing [Issues](https://github.com/{{organization}}/project_name/issues) and [Discussions](https://github.com/{{organization}}/project_name/discussions) to see if this feature has already been requested.
   - type: textarea
     id: problem
     attributes:
@@ -28,7 +29,8 @@ body:
     id: alternatives
     attributes:
       label: Describe alternatives you've considered
-      description: A clear and concise description of any alternative solutions or features you've considered.
+      description: A clear and concise description of any alternative solutions or features
+        you've considered.
       placeholder: "Ex. I tried using feature X, but it didn't work because [...]"
   - type: textarea
     id: additional

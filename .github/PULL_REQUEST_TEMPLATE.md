@@ -1,16 +1,16 @@
-<!-- 
-Thanks for contributing to {{project_name}}! 
+<!--
+Thanks for contributing to project_name!
 Please review the [Contributing Guidelines](../CONTRIBUTING.md) before submitting your PR.
 -->
 
 ## Description
 
-<!-- 
+<!--
 Please include a clear summary of the changes and the motivation for this PR.
 If this PR introduces a new feature or changes existing behavior, describe the context and how it works.
 -->
 
-- 
+-
 
 ## Type of Change
 
@@ -28,12 +28,12 @@ If this PR introduces a new feature or changes existing behavior, describe the c
 List the steps needed to manually test this PR, or describe the automated tests you have added.
 -->
 
-- 
+-
 
 ## Related Issues
 
-<!-- 
-Link to the relevant issue(s) here. 
+<!--
+Link to the relevant issue(s) here.
 Use `Fixes #ISSUE_NUMBER` or `Closes #ISSUE_NUMBER` to automatically close the issue upon merge.
 -->
 
@@ -41,8 +41,8 @@ Use `Fixes #ISSUE_NUMBER` or `Closes #ISSUE_NUMBER` to automatically close the i
 
 ## Screenshots / Visuals (if applicable)
 
-<!-- 
-If this PR introduces UI changes, visual features, or modifies documentation layout, 
+<!--
+If this PR introduces UI changes, visual features, or modifies documentation layout,
 please add screenshots, terminal output, or recordings to demonstrate the changes.
 -->
 
@@ -57,11 +57,11 @@ please add screenshots, terminal output, or recordings to demonstrate the change
 ## Checklist
 
 > [!IMPORTANT]
-> Please review and complete this checklist before submitting your PR. This helps our maintainers process your contribution faster and ensures it meets the quality standards of `{{project_name}}`.
+> Please review and complete this checklist before submitting your PR. This helps our maintainers process your contribution faster and ensures it meets the quality standards of `project_name`.
 
 - [ ] "I certify that all code in this PR is my own, except as noted below."
 - [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) guide.
-- [ ] My code follows the established style guidelines of `{{project_name}}`.
+- [ ] My code follows the established style guidelines of `project_name`.
 - [ ] I have performed a self-review of my own code.
 - [ ] I have commented my code, particularly in hard-to-understand areas.
 - [ ] I have made corresponding changes to the documentation.

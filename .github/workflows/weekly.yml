@@ -1,3 +1,4 @@
+---
 # =============================================================================
 # weekly.yml — The Janitor
 #
@@ -5,16 +6,13 @@
 # Purpose:  Dependency hygiene, full test suite regression.
 # =============================================================================
 name: "CI — Weekly Housekeeping"
-
 on:
   schedule:
     - cron: "0 0 * * 0"  # 00:00 UTC every Sunday
-  workflow_dispatch:       # Allow manual trigger
-
+  workflow_dispatch:  # Allow manual trigger
 permissions:
   contents: read
   security-events: write
-
 jobs:
 
   # ── Stage 1: Security Audit ────────────────────────────────────────────────
@@ -30,9 +28,10 @@ jobs:
       test_matrix: >-
         [
           {"level": "unit", "types": "smoke, sanity, regression"},
-          {"level": "integration", "types": "smoke, sanity, regression"},
-          {"level": "e2e", "types": "smoke, sanity, regression"}
+          {"level": "integration", "types": "smoke, sanity, regression", "coverage": true},
+          {"level": "e2e", "types": "smoke, sanity, regression", "coverage": true}
         ]
-      generate_coverage: true
+      python_versions: '["3.10", "3.11", "3.12", "3.13", "3.14"]'
+      generate_coverage: false
       publish_results: true
       retention_days: 14

@@ -1,1 +1,1 @@
---8<-- "SUPPORT.md"
+--8\<-- "SUPPORT.md"

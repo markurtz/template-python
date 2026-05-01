@@ -1,3 +1,4 @@
+---
 # ─────────────────────────────────────────────────────────────────────────────
 # _tests.yml — Reusable Test Runner
 #
@@ -17,12 +18,16 @@
 # Callers: development.yml, main.yml, nightly.yml, release.yml, weekly.yml
 # ─────────────────────────────────────────────────────────────────────────────
 name: "Test Runner (Reusable)"
-
 on:
   workflow_call:
     inputs:
       test_matrix:
-        description: "JSON array of test levels and types (e.g., '[{\"level\": \"unit\", \"types\": \"smoke, sanity\"}]')"
+        description: "JSON array of test levels and types (e.g., '[{\"level\": \"unit\", \"\
+          types\": \"smoke, sanity\"}]')"
+        required: true
+        type: string
+      python_versions:
+        description: "JSON array of Python versions"
         required: true
         type: string
       generate_coverage:
@@ -47,63 +52,70 @@ on:
       coverage_location:
         description: "Path to the coverage artifact"
         value: ${{ jobs.run-tests.outputs.coverage_location }}
-
 permissions:
   contents: read
-
 jobs:
-
   run-tests:
-    name: "Run ${{ matrix.level }} Tests"
+    name: "Run ${{ matrix.test-config.level }} Tests (Python ${{ matrix.python-version }})"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ fromJson(inputs.test_matrix) }}
+        python-version: ${{ fromJson(inputs.python_versions) }}
+        test-config: ${{ fromJson(inputs.test_matrix) }}
     outputs:
       results_location: "reports/"
       coverage_location: "coverage/"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Set up language runtime and test dependencies"
-        run: |
-          echo "TODO: set up test environment"
-          # exit 1
-
-      - name: "# TODO: Run tests"
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: "Set up Python ${{ matrix.python-version }}"
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: "Set up toolchain"
+        uses: pypa/hatch@install
+      - name: "Run tests"
         run: |
           # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Execute the test suite for the requested scope.
-          # Use inputs to filter what tests run.
-          # Level: ${{ matrix.level }}
-          # Types: ${{ matrix.types }}
-          # Coverage: ${{ inputs.generate_coverage }}
+          # Level: ${{ matrix.test-config.level }}
+          # Types: ${{ matrix.test-config.types }}
+          # Coverage: ${{ inputs.generate_coverage }} / ${{ matrix.test-config.coverage }}
           # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run tests matching level '${{ matrix.level }}' and types '${{ matrix.types }}'"
-          
-          mkdir -p reports/ coverage/
-          echo "dummy report" > reports/test-report.xml
-          if [ "${{ inputs.generate_coverage }}" == "true" ]; then
-            echo "dummy coverage" > coverage/coverage.xml
+          TYPES="${{ matrix.test-config.types }}"
+          MARKERS=$(echo "$TYPES" | sed 's/, / or /g' | sed 's/,/ or /g')
+          GENERATE_COVERAGE="false"
+          if [ "${{ inputs.generate_coverage }}" == "true" ] || [ "${{ matrix.test-config.coverage }}" == "true" ]; then
+            GENERATE_COVERAGE="true"
           fi
-          # exit 1
-
+          if [[ -z "$TYPES" ]] || [[ "$TYPES" == *"smoke"* && "$TYPES" == *"sanity"* && "$TYPES" == *"regression"* ]]; then
+            if [ "$GENERATE_COVERAGE" == "true" ]; then
+              hatch run test:cov-${{ matrix.test-config.level }} --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage/htmlcov --junitxml=reports/test-report.xml
+            else
+              hatch run test:${{ matrix.test-config.level }} --junitxml=reports/test-report.xml
+            fi
+          else
+            if [ "$GENERATE_COVERAGE" == "true" ]; then
+              hatch run test:cov-${{ matrix.test-config.level }} -m "$MARKERS" --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage/htmlcov --junitxml=reports/test-report.xml
+            else
+              hatch run test:${{ matrix.test-config.level }} -m "$MARKERS" --junitxml=reports/test-report.xml
+            fi
+          fi
       - name: Upload test results
         if: ${{ inputs.publish_results }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
-          name: test-results-${{ matrix.level }}-${{ github.run_id }}
+          name: test-results-${{ matrix.test-config.level }}-py${{ matrix.python-version }}-${{
+            github.run_id }}
           path: reports/
           retention-days: ${{ inputs.retention_days }}
           if-no-files-found: warn
-
       - name: Upload coverage report
-        if: ${{ inputs.publish_results && inputs.generate_coverage }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: ${{ inputs.publish_results && (inputs.generate_coverage == true || matrix.test-config.coverage == true) }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
-          name: coverage-report-${{ matrix.level }}-${{ github.run_id }}
+          name: coverage-report-${{ matrix.test-config.level }}-py${{ matrix.python-version
+            }}-${{ github.run_id }}
           path: coverage/
           retention-days: ${{ inputs.retention_days }}
           if-no-files-found: warn

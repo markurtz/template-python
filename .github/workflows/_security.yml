@@ -1,3 +1,4 @@
+---
 # ─────────────────────────────────────────────────────────────────────────────
 # _security.yml — Reusable Security Audit
 #
@@ -6,56 +7,42 @@
 # Callers: development.yml, main.yml, nightly.yml, release.yml, weekly.yml
 # ─────────────────────────────────────────────────────────────────────────────
 name: "Security Audit (Reusable)"
-
 on:
   workflow_call:
-
 permissions:
   contents: read
   security-events: write  # Upload SARIF to GitHub Security tab
-
 jobs:
-
   secret-scan:
     name: "Secret Scan"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
         with:
           fetch-depth: 0
-
-      - name: "# TODO: Run your secret scanner"
-        run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Perform a repository secret scan.
-          # Examples:
-          #   TruffleHog: https://github.com/trufflesecurity/trufflehog
-          #   Gitleaks:   https://github.com/gitleaks/gitleaks-action
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run secret scan"
-          # exit 1
-
+      - name: Run TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
   dependency-audit:
     name: "Dependency Vulnerability Scan"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: "# TODO: Run your deep dependency vulnerability scan"
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+      - name: Set up toolchain
+        run: pip install pip-audit hatch
+      - name: Run dependency vulnerability scan
         run: |
-          # ───────────────────────────────────────────────────────────────────
-          # PLACEHOLDER — Perform a deep SCA scan of your dependency tree.
-          # Examples:
-          #   Python:   pip install pip-audit && pip-audit --output json -o audit.json
-          #   Node.js:  npm audit --json > audit.json
-          # ───────────────────────────────────────────────────────────────────
-          echo "TODO: run SCA dependency audit"
-          # exit 1
-
+          # Use hatch to export dependencies and run pip-audit
+          hatch dep show requirements > requirements.txt
+          pip-audit -r requirements.txt --output json -o audit.json
       - name: Upload SCA results
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
           name: sca-results-${{ github.run_id }}
           path: audit.json

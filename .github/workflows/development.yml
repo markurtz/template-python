@@ -1,3 +1,4 @@
+---
 # =============================================================================
 # development.yml — PR CI
 #
@@ -11,19 +12,15 @@
 # Stage 5 — Comment on PR
 # =============================================================================
 name: "CI — Development"
-
 on:
   pull_request:
     branches:
       - main
-
 concurrency:
   group: "dev-${{ github.head_ref }}"
   cancel-in-progress: true
-
 permissions:
   contents: read
-
 jobs:
 
   # ── Determine Changes ──────────────────────────────────────────────────────
@@ -34,9 +31,9 @@ jobs:
       docs: ${{ steps.filter.outputs.docs }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
       - name: Check for docs changes
-        uses: dorny/paths-filter@d1c1ffe0248fe513906c8e24db8ea791d46f8590 # v3
+        uses: dorny/paths-filter@d1c1ffe0248fe513906c8e24db8ea791d46f8590  # v3
         id: filter
         with:
           filters: |
@@ -48,10 +45,11 @@ jobs:
   quality:
     name: "Quality Gate"
     uses: ./.github/workflows/_quality.yml
+    with:
+      python_versions: '["3.10", "3.14"]'
     permissions:
       contents: read
       security-events: write
-
   security:
     name: "Security Audit"
     uses: ./.github/workflows/_security.yml
@@ -69,6 +67,7 @@ jobs:
           {"level": "unit", "types": "smoke, sanity"},
           {"level": "integration", "types": "smoke"}
         ]
+      python_versions: '["3.10", "3.14"]'
       generate_coverage: true
       publish_results: true
       retention_days: 7
@@ -77,13 +76,15 @@ jobs:
   docs:
     name: "Build & Deploy Docs"
     needs: changes
-    if: needs.changes.outputs.docs == 'true' && github.event.pull_request.head.repo.fork == false
+    if: needs.changes.outputs.docs == 'true' && github.event.pull_request.head.repo.fork ==
+      false
     uses: ./.github/workflows/_docs.yml
     permissions:
       contents: write
     with:
       build_type: "dev-branch"
       alias: "pr-${{ github.event.pull_request.number }}"
+      include_coverage: true
 
   # ── Stage 4: Build ─────────────────────────────────────────────────────────
   build:
@@ -91,4 +92,3 @@ jobs:
     uses: ./.github/workflows/_build_package.yml
     with:
       build_type: "dev"
-  

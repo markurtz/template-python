@@ -1,4 +1,4 @@
-# {{project_name}} Full Documentation
+# project_name Full Documentation
 
 This file contains the concatenated core documentation for the project to provide comprehensive context to LLMs.
 
@@ -8,7 +8,7 @@ This file contains the concatenated core documentation for the project to provid
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/branding/logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="docs/assets/branding/logo-light.svg">
-    <img alt="{{project_name}} Logo" src="docs/assets/branding/logo-light.svg" width="400">
+    <img alt="project_name Logo" src="docs/assets/branding/logo-light.svg" width="400">
   </picture>
 </p>
 
@@ -18,33 +18,33 @@ This file contains the concatenated core documentation for the project to provid
 
 <p align="center">
   <!-- Package & Release Status -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/releases">
-    <img src="https://img.shields.io/github/v/release/{{organization}}/{{project_name}}?label=Release" alt="GitHub Release">
+  <a href="https://github.com/{{organization}}/project_name/releases">
+    <img src="https://img.shields.io/github/v/release/{{organization}}/project_name?label=Release" alt="GitHub Release">
   </a>
-  <a href="https://pypi.org/project/{{project_name}}/">
-    <img src="https://img.shields.io/pypi/v/{{project_name}}?label=PyPI" alt="PyPI Release">
+  <a href="https://pypi.org/project/project_name/">
+    <img src="https://img.shields.io/pypi/v/project_name?label=PyPI" alt="PyPI Release">
   </a>
-  <a href="https://pypi.org/project/{{project_name}}/">
-    <img src="https://img.shields.io/pypi/pyversions/{{project_name}}?label=Python" alt="Supported Python Versions">
+  <a href="https://pypi.org/project/project_name/">
+    <img src="https://img.shields.io/pypi/pyversions/project_name?label=Python" alt="Supported Python Versions">
   </a>
   <br/>
   <!-- CI/CD & Build Status -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/actions/workflows/main.yml">
-    <img src="https://github.com/{{organization}}/{{project_name}}/actions/workflows/main.yml/badge.svg" alt="CI Status">
+  <a href="https://github.com/{{organization}}/project_name/actions/workflows/main.yml">
+    <img src="https://github.com/{{organization}}/project_name/actions/workflows/main.yml/badge.svg" alt="CI Status">
   </a>
   <!-- Uncomment to display code coverage:
-  <a href="https://codecov.io/gh/{{organization}}/{{project_name}}">
-    <img src="https://codecov.io/gh/{{organization}}/{{project_name}}/branch/main/graph/badge.svg" alt="Coverage">
+  <a href="https://codecov.io/gh/{{organization}}/project_name">
+    <img src="https://codecov.io/gh/{{organization}}/project_name/branch/main/graph/badge.svg" alt="Coverage">
   </a>
   -->
   <br/>
   <!-- Issues & Support -->
-  <a href="https://github.com/{{organization}}/{{project_name}}/issues?q=is%3Aissue+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-closed/{{organization}}/{{project_name}}?label=Issues%20Closed" alt="Closed Issues">
+  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-closed/{{organization}}/project_name?label=Issues%20Closed" alt="Closed Issues">
   </a>
   <!-- Uncomment to display open issues:
-  <a href="https://github.com/{{organization}}/{{project_name}}/issues?q=is%3Aissue+is%3Aopen">
-    <img src="https://img.shields.io/github/issues/{{organization}}/{{project_name}}?label=Issues%20Open" alt="Open Issues">
+  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aopen">
+    <img src="https://img.shields.io/github/issues/{{organization}}/project_name?label=Issues%20Open" alt="Open Issues">
   </a>
   -->
   <a href="https://opensource.org/licenses/Apache-2.0">
@@ -53,9 +53,9 @@ This file contains the concatenated core documentation for the project to provid
 </p>
 
 <p align="center">
-  <a href="https://{{organization}}.github.io/{{project_name}}">Documentation</a> |
+  <a href="https://{{organization}}.github.io/project_name">Documentation</a> |
   <a href="https://blog.{{organization}}.org">Blog</a> |
-  <a href="https://github.com/{{organization}}/{{project_name}}/milestones">Roadmap</a> |
+  <a href="https://github.com/{{organization}}/project_name/milestones">Roadmap</a> |
   <a href="https://slack.{{organization}}.org">Slack</a> |
   <a href="https://calendar.{{organization}}.org">Weekly Syncs</a>
 </p>
@@ -70,11 +70,11 @@ This file contains the concatenated core documentation for the project to provid
   </picture>
 </p>
 
-Welcome to the {{project_name}} template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
+Welcome to the project_name template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, simply find and replace all instances of `{{project_name}}` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
+To use this template, simply find and replace all instances of `project_name` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
 
-### Why Use {{project_name}}?
+### Why Use project_name?
 
 - **Consistency:** Enforces a standardized layout and structure across your organization's repositories.
 - **Speed:** Bootstraps your project with pre-configured Actions, badges, and templates so you don't start from scratch.
@@ -82,9 +82,9 @@ To use this template, simply find and replace all instances of `{{project_name}}
 
 ### Comparisons
 
-When evaluating {{project_name}} against other templates, consider the following differences:
+When evaluating project_name against other templates, consider the following differences:
 
-| Feature | {{project_name}} Template | Standard GitHub Init | Cookiecutter / Copier |
+| Feature | project_name Template | Standard GitHub Init | Cookiecutter / Copier |
 | :--- | :--- | :--- | :--- |
 | **Setup Speed** | Very Fast | Fast | Slower (requires CLI tool) |
 | **Visual Assets** | Pre-configured Light/Dark assets | None | Varies |
@@ -94,7 +94,7 @@ When evaluating {{project_name}} against other templates, consider the following
 
 ## What's New
 
-**Welcome to the {{project_name}} Launch!**
+**Welcome to the project_name Launch!**
 
 This project has just been instantiated from the template repository. Keep an eye on this section for future release highlights, new features, and community announcements!
 
@@ -103,10 +103,10 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-pip install {{project_name}}
+pip install project_name
 ```
 
-For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://{{organization}}.github.io/{{project_name}}/getting-started/)**.
+For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://{{organization}}.github.io/project_name/getting-started/)**.
 
 ## Core Concepts
 
@@ -127,7 +127,7 @@ The template is organized into several key areas:
 
 ### Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details. For development setup, check out [DEVELOPING.md](DEVELOPING.md). 
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details. For development setup, check out [DEVELOPING.md](DEVELOPING.md).
 Please ensure you follow our [Code of Conduct](CODE_OF_CONDUCT.md) in all interactions.
 
 ### Support and Security
@@ -151,13 +151,13 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 If you use this template or the resulting software in your research, please cite it using the following BibTeX entry:
 
 ```bibtex
-@software{{{project_name}},
+@software{project_name,
   author = {{{organization}}},
-  title = {{{project_name}}},
+  title = {project_name},
   version = {{{version}}},
   month = {{{month}}},
   year = {2026},
-  url = {https://github.com/{{organization}}/{{project_name}}}
+  url = {https://github.com/{{organization}}/project_name}
 }
 ```
 
@@ -170,9 +170,9 @@ If you use this template or the resulting software in your research, please cite
 
 ## Project Context
 
-**`{{project_name}}`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
-**Primary language:** `<!-- TODO: Replace with your stack -->`  
-**Package manager:** `<!-- TODO: e.g., pip / npm -->`  
+**`project_name`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
+**Primary language:** `<!-- TODO: Replace with your stack -->`
+**Package manager:** `<!-- TODO: e.g., pip / npm -->`
 
 ## Critical Constraints
 
@@ -217,7 +217,7 @@ If you use this template or the resulting software in your research, please cite
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `{{project_name}}`, `{{organization}}`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `{{organization}}`).
 
 ## Agent Notes
 
@@ -225,7 +225,7 @@ _Add notes here when updating instructions for AI agents._
 
 ## File: DEVELOPING.md
 
-# Developing `{{project_name}}`
+# Developing `project_name`
 
 This guide provides instructions for setting up your development environment, navigating the project structure, and adhering to our coding standards.
 
@@ -235,7 +235,7 @@ Ensure your system meets the following requirements before getting started:
 
 - **[Docker](https://docs.docker.com/get-docker/)** (Recommended for isolated environments)
 - **[Git](https://git-scm.com/)** (Version control)
-- <!-- Add language-specific prerequisites, e.g., Python 3.10+, Node.js 18+ -->
+- Python 3.10+
 
 > [!NOTE]
 > We strongly recommend using our Docker setup to ensure your local environment exactly matches our CI/CD pipelines.
@@ -247,8 +247,8 @@ Ensure your system meets the following requirements before getting started:
 >
 > Once implemented, you can spin up the development environment with:
 > ```bash
-> git clone https://github.com/{{organization}}/{{project_name}}.git
-> cd {{project_name}}
+> git clone https://github.com/{{organization}}/project_name.git
+> cd project_name
 >
 > # Build and start the development environment in the background
 > docker-compose up -d --build
@@ -285,37 +285,6 @@ pip install -e ".[dev]"
 pre-commit install
 ```
 
-### Node.js / TypeScript
-
-```bash
-# 1. Install all dependencies (uses lockfile for reproducibility)
-npm ci
-
-# 2. Install pre-commit hooks (requires Python; see note above)
-pre-commit install
-# Alternatively, use Husky for a pure Node.js hook solution:
-# npx husky install
-```
-
-### Go
-
-```bash
-# 1. Download module dependencies
-go mod download
-
-# 2. Install pre-commit hooks (requires Python; see note above)
-pre-commit install
-```
-
-### Rust
-
-```bash
-# 1. All dependencies are managed by Cargo automatically
-cargo build
-
-# 2. Install pre-commit hooks (requires Python; see note above)
-pre-commit install
-```
 
 ## Running Tests
 
@@ -335,18 +304,6 @@ pytest tests/unit/
 pytest tests/integration/
 pytest tests/         # full suite with coverage
 pytest tests/ --cov=src --cov-report=xml
-
-# Node.js (Jest)
-npx jest tests/unit/
-npx jest --ci --coverage
-
-# Go
-go test ./tests/unit/...
-go test ./...
-
-# Rust
-cargo test --lib           # unit tests
-cargo test --test '*'      # integration tests
 ```
 
 ## Code Quality and Formatting
@@ -401,9 +358,9 @@ For further assistance, please refer to our [SUPPORT.md](SUPPORT.md).
 
 ## File: CONTRIBUTING.md
 
-# Contributing to {{project_name}}
+# Contributing to project_name
 
-First off, thank you for considering contributing to `{{project_name}}`! It's people like you that make this project great.
+First off, thank you for considering contributing to `project_name`! It's people like you that make this project great.
 
 ## Code of Conduct
 
@@ -418,13 +375,13 @@ If you discover a security issue, please refer to our [Security Policy](SECURITY
 
 ## How Can I Contribute?
 
-There are many ways to contribute to `{{project_name}}`, and not all of them involve writing code:
+There are many ways to contribute to `project_name`, and not all of them involve writing code:
 
 - **Reporting Bugs:** Help us improve by submitting detailed bug reports via our issue tracker.
 - **Suggesting Features:** Propose new features or enhancements that could benefit the project.
 - **Improving Documentation:** Fix typos, add examples, or write new guides.
 - **Writing Code:** Fix bugs, implement features, or improve performance.
-- **Helping Others:** Answer questions in [Discussions](https://github.com/{{organization}}/{{project_name}}/discussions) or issue comments.
+- **Helping Others:** Answer questions in [Discussions](https://github.com/{{organization}}/project_name/discussions) or issue comments.
 
 For general questions and help, please see [SUPPORT.md](SUPPORT.md).
 
@@ -447,7 +404,7 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ### 3. Making Changes
 
-1. **Fork the Repository:** Fork the `{{project_name}}` repository to your GitHub account.
+1. **Fork the Repository:** Fork the `project_name` repository to your GitHub account.
 2. **Create a Branch:** Create a new branch from `main` for your work (e.g., `git checkout -b feat/add-new-feature`).
 3. **Write Code:** Implement your changes, adhering to the project's coding standards.
 4. **Write Tests:** Add unit tests or integration tests for your changes to ensure stability.
@@ -469,17 +426,17 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ## Licensing
 
-By contributing to `{{project_name}}`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
+By contributing to `project_name`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
 
 ## File: SECURITY.md
 
-# Security Policy for `{{project_name}}`
+# Security Policy for `project_name`
 
-We take the security of `{{project_name}}` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
+We take the security of `project_name` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
 
 ## Supported Versions
 
-Please check the table below for the versions of `{{project_name}}` that are currently being supported with security updates.
+Please check the table below for the versions of `project_name` that are currently being supported with security updates.
 
 | Version | Supported |
 | :--- | :--- |
@@ -495,7 +452,7 @@ Please check the table below for the versions of `{{project_name}}` that are cur
 
 If you discover a security vulnerability, please bring it to our attention right away using one of the following methods:
 
-1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/{{organization}}/{{project_name}}/security/advisories)** of this repository.
+1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/{{organization}}/project_name/security/advisories)** of this repository.
 2. **Email:** Send your report directly to **[INSERT EMAIL ADDRESS OR SECURITY CONTACT]**. *(Optional: Encrypt your email using our PGP key: [INSERT PGP KEY LINK/FINGERPRINT])*
 
 ### What to Include in Your Report
@@ -505,7 +462,7 @@ To help us resolve the issue quickly, please include the following information:
 - **Detailed description** of the vulnerability and its potential impact.
 - **Step-by-step instructions** to reproduce the issue.
 - **Proof of Concept (PoC)** code or screenshots, if available.
-- **Environment details** (e.g., version of `{{project_name}}`, OS, relevant configurations).
+- **Environment details** (e.g., version of `project_name`, OS, relevant configurations).
 
 ## Triage and Resolution Process
 
@@ -519,22 +476,22 @@ We will handle your report with strict confidentiality. Our process is as follow
 ## Scope
 
 **In Scope:**
-- Vulnerabilities within the core `{{project_name}}` codebase.
+- Vulnerabilities within the core `project_name` codebase.
 - Security issues in our default configurations.
 
 **Out of Scope:**
 - Volumetric Denial of Service (DoS) attacks.
 - Theoretical issues without a reproducible PoC.
-- Vulnerabilities in third-party dependencies that are not exploitable through `{{project_name}}`.
+- Vulnerabilities in third-party dependencies that are not exploitable through `project_name`.
 - Missing security headers or best practices that do not lead to a direct exploit.
 
 *(Note: We currently **[do/do not]** operate a bug bounty program. Disclosures are greatly appreciated but are not eligible for financial rewards at this time.)*
 
 ## File: SUPPORT.md
 
-# Support for `{{project_name}}`
+# Support for `project_name`
 
-We are excited to have you use `{{project_name}}`! If you need help, please follow these guidelines to ensure you get support quickly and efficiently.
+We are excited to have you use `project_name`! If you need help, please follow these guidelines to ensure you get support quickly and efficiently.
 
 ## Security Vulnerabilities
 
@@ -547,9 +504,9 @@ If you have found a security vulnerability, please refer to our [Security Policy
 
 Before reaching out, we recommend checking the following resources. Many common questions and issues are already covered there.
 
-- **[Official Documentation](https://{{organization}}.github.io/{{project_name}}):** Comprehensive guides, tutorials, and API references.
-- **[GitHub Issues](https://github.com/{{organization}}/{{project_name}}/issues):** Search existing issues to see if someone else has already reported your problem or requested your feature. Feel free to add a "+1" reaction to existing issues to show your interest.
-- **[GitHub Discussions](https://github.com/{{organization}}/{{project_name}}/discussions):** Search our discussions for Q&A, general advice, and community knowledge.
+- **[Official Documentation](https://{{organization}}.github.io/project_name):** Comprehensive guides, tutorials, and API references.
+- **[GitHub Issues](https://github.com/{{organization}}/project_name/issues):** Search existing issues to see if someone else has already reported your problem or requested your feature. Feel free to add a "+1" reaction to existing issues to show your interest.
+- **[GitHub Discussions](https://github.com/{{organization}}/project_name/discussions):** Search our discussions for Q&A, general advice, and community knowledge.
 
 ## Opening a New Issue
 
@@ -557,9 +514,9 @@ If you cannot find an answer in the documentation or existing issues, please ope
 
 | Issue Type | Venue | Description |
 | :--- | :--- | :--- |
-| **Bug Report** | [GitHub Issues](https://github.com/{{organization}}/{{project_name}}/issues/new) | Use the "Bug Report" template. Provide reproducible steps, environment details, and relevant logs. |
-| **Feature Request** | [GitHub Issues](https://github.com/{{organization}}/{{project_name}}/issues/new) | Use the "Feature Request" template. Clearly describe your use case and the problem the feature would solve. |
-| **Q&A / General Help** | [GitHub Discussions](https://github.com/{{organization}}/{{project_name}}/discussions/new) | Start a discussion for questions about how to use `{{project_name}}`, architecture queries, or advice. |
+| **Bug Report** | [GitHub Issues](https://github.com/{{organization}}/project_name/issues/new) | Use the "Bug Report" template. Provide reproducible steps, environment details, and relevant logs. |
+| **Feature Request** | [GitHub Issues](https://github.com/{{organization}}/project_name/issues/new) | Use the "Feature Request" template. Clearly describe your use case and the problem the feature would solve. |
+| **Q&A / General Help** | [GitHub Discussions](https://github.com/{{organization}}/project_name/discussions/new) | Start a discussion for questions about how to use `project_name`, architecture queries, or advice. |
 
 ## Community Channels
 
@@ -572,4 +529,4 @@ Join our community to chat with other users, contributors, and the core maintain
 ## Commercial Support
 
 <!-- If applicable, mention any commercial support options here. -->
-At this time, there is no official commercial support available for `{{project_name}}`. Support is provided on a best-effort basis by the open-source community and maintainers.
+At this time, there is no official commercial support available for `project_name`. Support is provided on a best-effort basis by the open-source community and maintainers.
