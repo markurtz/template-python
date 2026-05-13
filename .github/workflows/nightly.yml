@@ -122,6 +122,7 @@ jobs:
         with:
           subject-path: dist/*
       - name: Publish to PyPI
+        if: github.repository_id != 1226495532  # Skip PyPI for the template repo itself
         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14
         with:
           packages-dir: dist/
