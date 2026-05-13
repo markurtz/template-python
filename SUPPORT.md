@@ -27,16 +27,8 @@ If you cannot find an answer in the documentation or existing issues, please ope
 | **Feature Request**    | [GitHub Issues](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/issues/new)           | Use the "Feature Request" template. Clearly describe your use case and the problem the feature would solve. |
 | **Q&A / General Help** | [GitHub Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions/new) | Start a discussion for questions about how to use `project_name`, architecture queries, or advice.          |
 
-## Community Channels
-
-Join our community to chat with other users, contributors, and the core maintainers:
-
-- **[Discord / Slack / Matrix - Insert Link]**: Join our real-time chat server.
-- **[Mailing List / Forum - Insert Link]**: Subscribe for announcements and longer-form discussions.
-- **[Weekly Syncs - Insert Link]**: Join our community meetings (see our calendar for details).
+Feel free to join the conversation on GitHub Discussions to connect with other users and maintainers.
 
 ## Commercial Support
-
-<!-- If applicable, mention any commercial support options here. -->
 
 At this time, there is no official commercial support available for `project_name`. Support is provided on a best-effort basis by the open-source community and maintainers.

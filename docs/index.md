@@ -7,91 +7,124 @@ hide:
 <div class="hero" markdown>
 <div class="hero-content" markdown>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/branding/logo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/branding/logo-light.svg">
+  <img alt="{{ project_name }} Logo" src="assets/branding/logo-light.svg" width="400">
+</picture>
+
 # {{ project_name }}
 
 **{{ project_description }}**
 
-A production-ready Apache 2.0 template that gives you a fully structured, documented, and CI/CD-enabled starting point — so you can focus on building, not scaffolding.
-
-<!-- mdformat off -->
-
 [Get Started](getting-started/index.md){ .md-button .md-button--primary }
-\[View on GitHub\](https://github.com/{{ org_name }}/{{ project_name }}){ .md-button }
-
-<!-- mdformat on -->
+<a href="https://github.com/{{ org_name }}/{{ project_name }}" class="md-button">View on GitHub</a>
 
 </div>
 </div>
+
+## Overview
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/user-flow-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/branding/user-flow-light.svg">
+    <img alt="User Flow Diagram" src="assets/branding/user-flow-light.svg" width="800">
+  </picture>
+</p>
 
 ## What's Included
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch-outline: **Getting Started**
+<div class="card" markdown>
+:material-rocket-launch-outline: **Getting Started**
 
-  ______________________________________________________________________
+______________________________________________________________________
 
-  Installation guide, quick start tutorial, and common workflow walkthroughs.
+Installation guide, quick start tutorial, and common workflow walkthroughs.
 
-  [:octicons-arrow-right-24: Get Started](getting-started/index.md)
+[:octicons-arrow-right-24: Get Started](getting-started/index.md)
 
-- :material-book-open-outline: **Guides**
+</div>
 
-  ______________________________________________________________________
+<div class="card" markdown>
+:material-book-open-outline: **Guides**
 
-  Step-by-step guides for common tasks, integrations, and configuration patterns.
+______________________________________________________________________
 
-  [:octicons-arrow-right-24: Browse Guides](guides/index.md)
+Step-by-step guides for common tasks, integrations, and configuration patterns.
 
-- :material-code-braces: **Examples**
+[:octicons-arrow-right-24: Browse Guides](guides/index.md)
 
-  ______________________________________________________________________
+</div>
 
-  Runnable code examples that demonstrate real-world usage of `{{ project_name }}`.
+<div class="card" markdown>
+:material-code-braces: **Examples**
 
-  [:octicons-arrow-right-24: See Examples](examples/index.md)
+______________________________________________________________________
 
-- :material-file-document-outline: **Reference**
+Runnable code examples that demonstrate real-world usage of {{ project_name }}.
 
-  ______________________________________________________________________
+[:octicons-arrow-right-24: See Examples](examples/index.md)
 
-  Full API reference, CLI documentation, and configuration schema.
+</div>
 
-  [:octicons-arrow-right-24: View Reference](reference/index.md)
+<div class="card" markdown>
+:material-file-document-outline: **Reference**
 
-- :material-account-group-outline: **Community**
+______________________________________________________________________
 
-  ______________________________________________________________________
+Full API reference and configuration schema.
 
-  Contributing guide, developer setup, Code of Conduct, and support resources.
+[:octicons-arrow-right-24: View Reference](reference/index.md)
 
-  [:octicons-arrow-right-24: Get Involved](community/index.md)
+</div>
 
-- :material-shield-lock-outline: **Security**
+<div class="card" markdown>
+:material-account-group-outline: **Community**
 
-  ______________________________________________________________________
+______________________________________________________________________
 
-  Our security policy, responsible disclosure process, and supported versions.
+Contributing guide, developer setup, Code of Conduct, and support resources.
 
-  [:octicons-arrow-right-24: Security Policy](community/security.md)
+[:octicons-arrow-right-24: Get Involved](community/index.md)
+
+</div>
+
+<div class="card" markdown>
+:material-shield-lock-outline: **Security**
+
+______________________________________________________________________
+
+Our security policy, responsible disclosure process, and supported versions.
+
+[:octicons-arrow-right-24: Security Policy](community/security.md)
+
+</div>
 
 </div>
 
 ## Quick Install
 
-```bash
-pip install project_name
+### Build Configuration
+
+{{ project_name }} is primarily used as a build plugin. The preferred pathway is to configure it in your `pyproject.toml`:
+
+```toml
+[build-system]
+requires = ["hatchling", "project_name"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "project_name"
 ```
 
-For advanced installation options (from source, Docker, etc.) see the [Installation Guide](getting-started/installation.md).
+For advanced installation options, Setuptools alternatives, and step-by-step onboarding, see the [Installation Guide](getting-started/installation.md).
 
 ## Links
 
-<!-- mdformat off -->
-
-- :material-github: \[GitHub Repository\](https://github.com/{{ org_name }}/{{ project_name }})
-- :material-map-marker-path: \[Roadmap\]({{ roadmap_url }})
-- :material-post-outline: \[Blog\]({{ blog_url }})
-- :material-slack: \[Slack Community\]({{ slack_url }})
-
-<!-- mdformat on -->
+- :material-github: <a href="https://github.com/{{ org_name }}/{{ project_name }}">GitHub Repository</a>
+- :material-map-marker-path: <a href="https://github.com/{{ org_name }}/{{ project_name }}/milestones">Roadmap</a>
+- :material-post-outline: <a href="{{ blog_url }}">Blog</a>
+- :material-slack: <a href="{{ slack_url }}">Slack Community</a>

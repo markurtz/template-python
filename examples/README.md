@@ -16,9 +16,9 @@ Before running the examples, ensure you have set up your environment correctly:
 
 Below is a curated list of available examples, categorized by complexity:
 
-| Example                              | Complexity                    | Description                                                          |
-| :----------------------------------- | :---------------------------- | :------------------------------------------------------------------- |
-| **`[example_name/](example_name/)`** | ⭐ Beginner / ⭐⭐⭐ Advanced | Briefly describe the example and what core concepts it demonstrates. |
+| Example                                      | Complexity  | Description                                                                                    |
+| :------------------------------------------- | :---------- | :--------------------------------------------------------------------------------------------- |
+| **`[example_template/](example_template/)`** | ⭐ Beginner | A generic template demonstrating standard structure, configuration, and telemetry integration. |
 
 <!-- Add new examples to the table above as they are created. -->
 
@@ -28,7 +28,7 @@ Most examples can be executed directly from the command line. Navigate to the ro
 
 ```bash
 # Example: Running a generic example script
-python examples/example_name/main.py
+python examples/example_template/main.py
 ```
 
 > [!TIP]

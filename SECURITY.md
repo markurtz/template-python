@@ -27,17 +27,17 @@ If you discover a security vulnerability, please bring it to our attention right
 
 To help us resolve the issue quickly, please include the following information:
 
-- **Type of vulnerability** (e.g., XSS, SQLi, RCE, authorization bypass).
+- **Type of vulnerability** (e.g., arbitrary code execution, path traversal, command injection).
 - **Detailed description** of the vulnerability and its potential impact.
 - **Step-by-step instructions** to reproduce the issue.
 - **Proof of Concept (PoC)** code or screenshots, if available.
-- **Environment details** (e.g., version of `project_name`, OS, relevant configurations).
+- **Environment details** (e.g., version of `project_name`, OS, Python version, relevant configurations).
 
 ## Triage and Resolution Process
 
 We will handle your report with strict confidentiality. Our process is as follows:
 
-1. **Acknowledgment:** We will respond to your report as soon as possible, usually within **[INSERT NUMBER, e.g., 48] hours**.
+1. **Acknowledgment:** We will respond to your report as soon as possible, usually within a few business days.
 1. **Triage:** We will investigate the issue and determine its validity and severity. We may contact you for further clarification.
 1. **Fix:** If the vulnerability is verified, we will develop and test a patch.
 1. **Disclosure:** We will coordinate with you to publicly disclose the vulnerability once a fix is released. We will publicly acknowledge your responsible disclosure, if you wish.
@@ -47,13 +47,12 @@ We will handle your report with strict confidentiality. Our process is as follow
 **In Scope:**
 
 - Vulnerabilities within the core `project_name` codebase.
-- Security issues in our default configurations.
+- Security issues resulting from our default configurations or execution paths.
 
 **Out of Scope:**
 
-- Volumetric Denial of Service (DoS) attacks.
 - Theoretical issues without a reproducible PoC.
 - Vulnerabilities in third-party dependencies that are not exploitable through `project_name`.
-- Missing security headers or best practices that do not lead to a direct exploit.
+- Issues requiring the victim to intentionally clone and run `project_name` against a malicious, untrusted Git repository, unless it leads to unexpected system compromise beyond the expected permissions.
 
-*(Note: We currently **[do/do not]** operate a bug bounty program. Disclosures are greatly appreciated but are not eligible for financial rewards at this time.)*
+*(Note: We currently do not operate a bug bounty program. Disclosures are greatly appreciated but are not eligible for financial rewards at this time.)*

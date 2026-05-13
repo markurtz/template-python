@@ -1,6 +1,6 @@
 ---
 # ─────────────────────────────────────────────────────────────────────────────
-# _build_package.yml — Reusable Package Builder
+# _build_package.yml
 #
 # Compiles or packages the project. This workflow handles only the build step.
 # It returns the directory where the build artifacts are located, allowing
@@ -42,6 +42,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+        with:
+          fetch-depth: 0
       - name: "Set up build toolchain"
         uses: pypa/hatch@install
       - name: "Build package"

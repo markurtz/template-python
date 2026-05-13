@@ -31,7 +31,7 @@ If you are contributing code, please follow these structured steps:
 
 ### 1. Development Setup
 
-Before you start coding, please refer to our [Development Guide](DEVELOPING.md) (`DEVELOPING.md`) for detailed instructions on:
+Before you start coding, please refer to our [Development Guide](DEVELOPING.md) for detailed instructions on:
 
 - Setting up your local environment
 - Installing dependencies

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "gitversioned[hatchling]"]
 build-backend = "hatchling.build"
 
 [project]
@@ -10,36 +10,50 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
 authors = [{ name = "{{organization}}" }]
-dependencies = []
+dependencies = [
+    "loguru>=0.7.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+]
 
 [project.optional-dependencies]
+opentelemetry = [
+    "opentelemetry-api>=1.0.0",
+    "opentelemetry-sdk>=1.0.0",
+]
+
+[dependency-groups]
 dev = [
     # testing
-    "pytest>=8.0.0",
-    "pytest-asyncio",
-    "pytest-cov",
-    "pytest-mock",
-    "respx",
+    "pytest~=9.0",
+    "pytest-asyncio~=1.3",
+    "pytest-cov~=7.1",
+    "pytest-mock~=3.15",
+    "respx~=0.23",
 
     # code quality
-    "mypy",
-    "ruff",
+    "mypy~=2.1",
+    "ruff~=0.15",
 
     # docs quality
-    "mdformat",
-    "mdformat-frontmatter",
-    "mdformat-gfm",
+    "mdformat~=1.0",
+    "mdformat-frontmatter~=2.0",
+    "mdformat-gfm~=1.0",
 
     # general and configurations
-    "yamlfix",
+    "yamlfix~=1.19",
 ]
 docs = [
     # documentation
-    "mike",
-    "mkdocs>=1.6.0",
-    "mkdocs-macros-plugin",
-    "mkdocs-material>=9.5.0",
-    "pymdown-extensions",
+    "mike~=2.2",
+    "mkdocs~=1.6",
+    "mkdocstrings[python]~=1.0",
+    "mkdocs-macros-plugin~=1.5",
+    "mkdocs-material~=9.7",
+    "mkdocs-minify-plugin~=0.8",
+    "mkdocs-nav-weight~=0.3",
+    "mkdocs-section-index~=0.3",
+    "pymdown-extensions~=10.21",
 ]
 
 [project.scripts]
@@ -51,52 +65,44 @@ Repository = "https://github.com/{{org_name}}/{{project_name}}.git"
 Issues = "https://github.com/{{org_name}}/{{project_name}}/issues"
 
 [tool.hatch.version]
-path = "src/project_name/__init__.py"
+source = "gitversioned"
+
+[tool.gitversioned]
+source_type = ["tag"]
+
+[tool.gitversioned.auto_increment]
+pre = "minor"
+dev = "patch"
 
 # ==============================================================================
 # Hatch Environment Configurations
 # ==============================================================================
 
 [tool.hatch.envs.default]
-installer = "uv"
-dependencies = [
-  "pytest",
-  "pytest-cov",
-  "pytest-mock",
-  "pytest-asyncio",
-  "respx",
-]
+dependency-groups = ["dev"]
 
 # ------------------------------------------------------------------------------
 # Quality & Style: Ruff, mdformat, yamlfix
 # ------------------------------------------------------------------------------
 [tool.hatch.envs.lint]
 detached = true
-installer = "uv"
-dependencies = [
-  "pre-commit",
-  "ruff",
-  "mdformat",
-  "mdformat-gfm",
-  "mdformat-frontmatter",
-  "yamlfix>=1.16.0",
-]
+dependency-groups = ["dev"]
 
 [tool.hatch.envs.lint.scripts]
 # Quality checks (Read-only)
 check = [
-  "ruff check {args:.}",
-  "ruff format --check {args:.}",
-  "mdformat --check {args:.}",
-  "yamlfix --check {args:.}",
+  "ruff check {args:docs examples scripts src tests .github}",
+  "ruff format --check {args:docs examples scripts src tests .github}",
+  "mdformat --check {args:docs examples scripts src tests .github *.md}",
+  "yamlfix --check {args:docs examples scripts src tests .github *.yml .*.yaml}",
 ]
 pre-commit = "SKIP=type-check pre-commit run --all-files --show-diff-on-failure"
 # Style runs (Applies fixes)
 format = [
-  "ruff check --fix {args:.}",
-  "ruff format {args:.}",
-  "mdformat {args:.}",
-  "yamlfix {args:.}",
+  "ruff check --fix {args:docs examples scripts src tests .github}",
+  "ruff format {args:docs examples scripts src tests .github}",
+  "mdformat {args:docs examples scripts src tests .github *.md}",
+  "yamlfix {args:docs examples scripts src tests .github *.yml .*.yaml}",
 ]
 
 # ------------------------------------------------------------------------------
@@ -105,12 +111,9 @@ format = [
 [tool.hatch.envs.types]
 # Needs project dependencies to resolve imports
 template = "default"
-dependencies = [
-  "mypy>=1.0.0",
-]
 
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src tests}"
+check = "mypy --install-types --non-interactive {args:examples scripts src tests}"
 
 # ------------------------------------------------------------------------------
 # Testing: Pytest with segmented coverage
@@ -128,26 +131,21 @@ e2e = "pytest tests/e2e {args}"
 
 # Coverage specific runs
 # These use --cov=src to ensure only your source code is measured
-cov-unit = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/unit/htmlcov tests/unit {args}"
-cov-integration = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/integration/htmlcov tests/integration {args}"
-cov-e2e = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/e2e/htmlcov tests/e2e {args}"
+unit-cov = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/unit/htmlcov tests/unit {args}"
+integration-cov = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/integration/htmlcov tests/integration {args}"
+e2e-cov = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/e2e/htmlcov tests/e2e {args}"
 # Full suite coverage
-cov-all = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/all/htmlcov tests {args}"
+all-cov = "pytest --cov=src --cov-report=term-missing --cov-report=html:docs/coverage/all/htmlcov tests {args}"
 
 # ------------------------------------------------------------------------------
 # Documentation: MkDocs
 # ------------------------------------------------------------------------------
 [tool.hatch.envs.docs]
 detached = true
-installer = "uv"
-dependencies = [
-  "mkdocs>=1.6.0",
-  "mkdocs-material>=9.5.0",
-  "mkdocstrings[python]",
-  "mike",
-  "pymdown-extensions",
-  "mkdocs-macros-plugin",
-]
+dependency-groups = ["docs"]
+
+[tool.hatch.envs.docs.env-vars]
+DISABLE_MKDOCS_2_WARNING = "true"
 
 [tool.hatch.envs.docs.scripts]
 build = "mkdocs build --clean --strict"
@@ -175,14 +173,14 @@ warn_redundant_casts = true
 warn_unused_ignores = false
 show_error_codes = true
 namespace_packages = true
-exclude = ["venv", "build", "dist", ".venv"]
-follow_imports = "silent"
+exclude = ["venv", "build", "dist", ".venv", "examples/.*/setup\\.py"]
+follow_imports = "normal"
 ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 88
 indent-width = 4
-exclude = ["build", "dist", "env", ".venv"]
+exclude = ["build", "dist", "env", ".venv", "src/project_name/version.py"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -269,6 +267,13 @@ select = [
     "N806",    # allow uppercase variable names in tests
     "PGH003",  # allow general ignores in tests
     "PLR0915", # allow complex statements in tests
+    "S603",    # allow subprocess with untrusted input in tests
+    "S607",    # allow partial executable paths in tests
+    "T201",    # allow print in tests
+]
+"examples/**/*.py" = [
+    "T201",    # allow print in examples
+    "INP001",  # allow implicit namespace packages
 ]
 
 [tool.ruff.lint.isort]
@@ -281,7 +286,9 @@ markers = [
     "smoke: quick tests to check basic functionality",
     "sanity: detailed tests to ensure major functions work correctly",
     "regression: tests to ensure that new changes do not break existing functionality",
-    "e2e: end-to-end integration tests"
+    "e2e: end-to-end integration tests",
+    "unit: unit tests",
+    "integration: integration tests"
 ]
 testpaths = ["tests"]
 

@@ -6,45 +6,28 @@ This section contains task-oriented how-to guides for `{{ project_name }}`. Unli
 
 <div class="grid cards" markdown>
 
-- :material-cog-outline: **Configuration**
+<div class="card" markdown>
+:material-cog-outline: **Repository Setup**
 
-  ______________________________________________________________________
+______________________________________________________________________
 
-  A deep dive into all configuration options, file formats, and environment variables supported by `{{ project_name }}`.
+Essential configuration steps for maintainers who just instantiated this template.
+Includes GitHub settings, publishing, and docs setup.
 
-  <!-- [:octicons-arrow-right-24: Configuration Guide](configuration.md) -->
+[:octicons-arrow-right-24: Repository Setup Guide](repository-setup.md)
 
-  *Coming soon.*
+</div>
 
-- :material-puzzle-outline: **Integrations**
+<div class="card" markdown>
+:material-transit-connection-variant: **CI/CD & GitHub Workflows**
 
-  ______________________________________________________________________
+______________________________________________________________________
 
-  Step-by-step instructions for integrating `{{ project_name }}` with third-party tools, platforms, and services.
+Walkthrough of the GitHub Actions pipelines, development pathways, and CI/CD standards.
 
-  <!-- [:octicons-arrow-right-24: Integrations](integrations.md) -->
+[:octicons-arrow-right-24: View Guide](github-workflows.md)
 
-  *Coming soon.*
-
-- :material-shield-half-full: **Authentication & Security**
-
-  ______________________________________________________________________
-
-  How to configure authentication, manage secrets, and follow security best practices when deploying `{{ project_name }}`.
-
-  <!-- [:octicons-arrow-right-24: Authentication Guide](authentication.md) -->
-
-  *Coming soon.*
-
-- :material-swap-horizontal: **Migration**
-
-  ______________________________________________________________________
-
-  Guides for upgrading between major versions and migrating from other tools to `{{ project_name }}`.
-
-  <!-- [:octicons-arrow-right-24: Migration Guide](migration.md) -->
-
-  *Coming soon.*
+</div>
 
 </div>
 

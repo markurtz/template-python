@@ -104,11 +104,14 @@ python_pkg = project_name.replace('-', '_')
 replacements = {
     '{{project_name}}': project_name,
     '%7B%7Bproject_name%7D%7D': project_name,
+    'template-python': project_name,
+    'template_python': python_pkg,
     'project_name': python_pkg,
     '{{project_description}}': os.environ.get('PROJECT_DESC', ''),
     '%7B%7Bproject_description%7D%7D': os.environ.get('PROJECT_DESC', ''),
     '{{organization}}': os.environ.get('ORGANIZATION', ''),
     '%7B%7Borganization%7D%7D': os.environ.get('ORGANIZATION', ''),
+    'markurtz': os.environ.get('ORGANIZATION', ''),
     '{{org_name}}': os.environ.get('ORG_NAME', ''),
     '%7B%7Borg_name%7D%7D': os.environ.get('ORG_NAME', '')
 }

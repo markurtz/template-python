@@ -3,7 +3,7 @@
 This guide gets you from a fresh installation to running your first command in under 5 minutes.
 
 > [!NOTE]
-> Make sure you have completed [Installation](installation.md) before continuing.
+> Make sure you have completed [Installation](installation.md) before continuing. If you are the maintainer and just instantiated this repository from the template, please complete the [Repository Setup](../guides/repository-setup.md) first.
 
 ## Step 1 — Initialize Your Environment
 
@@ -54,9 +54,8 @@ Expected output:
 
 Now that your first command works, explore what `{{ project_name }}` can do:
 
-- **[Workflows](workflows.md)** — Common end-to-end usage patterns
-- **[Guides](../guides/index.md)** — Task-specific deep dives
+- **[Guides](../guides/index.md)** — Task-specific deep dives including CI/CD and repository setup
 - **[Reference](../reference/index.md)** — Full API and CLI documentation
 - **[Examples](../examples/index.md)** — Runnable code examples
 
-**Next:** [Workflows →](workflows.md)
+**Next:** [Guides →](../guides/index.md)

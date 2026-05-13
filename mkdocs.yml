@@ -23,6 +23,8 @@ extra:
   roadmap_url: "https://github.com/{{organization}}/project_name/milestones"
 theme:
   name: material
+  logo: assets/branding/icon-white.svg
+  favicon: assets/branding/icon-black.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -34,8 +36,14 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+    - content.code.annotate
+    - content.code.select
     - content.action.edit
+    - content.tabs.link
     - content.tooltips
+    - toc.follow
+    - toc.integrate
+    - header.autohide
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -54,6 +62,9 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -74,35 +85,33 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - tables
+  - footnotes
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - toc:
       permalink: true
 plugins:
-  - search
   - macros
+  - mike
+  - minify:
+      minify_html: true
+  - mkdocs-nav-weight
   - mkdocstrings:
       handlers:
         python:
           paths:
             - src
-nav:
-  - Home: index.md
-  - Getting Started:
-      - getting-started/index.md
-      - Installation: getting-started/installation.md
-      - Quick Start: getting-started/quickstart.md
-      - Workflows: getting-started/workflows.md
-  - Guides: guides/index.md
-  - Examples: examples/index.md
-  - Reference:
-      - reference/index.md
-  - Community:
-      - community/index.md
-      - Contributing: community/contributing.md
-      - Developer Setup: community/developing.md
-      - AI Agent Guide: community/agents.md
-      - Code of Conduct: community/code-of-conduct.md
-      - Security Policy: community/security.md
-      - Support: community/support.md
+          options:
+            docstring_style: sphinx
+  - search
+  - section-index
+  - tags
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
@@ -117,3 +126,11 @@ extra_javascript:
 # The root AGENTS.md contains agent-specific coding instructions; it is also
 # surfaced in the docs nav under Community > AI Agent Guide.
 # ---------------------------------------------------------------------------
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
