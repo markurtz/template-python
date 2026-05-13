@@ -33,6 +33,7 @@ dev = [
 
     # code quality
     "mypy~=2.1",
+    "pre-commit~=4.1",
     "ruff~=0.15",
 
     # docs quality
