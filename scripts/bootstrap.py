@@ -880,7 +880,7 @@ def main(**kwargs: Any) -> None:  # noqa: C901
                 replace=config.project_desc,
             ),
             ReplacementRule(search="conduct@example.com", replace=config.support_email),
-            ReplacementRule(search="2026", replace=config.release_year),
+            ReplacementRule(search="{{year}}", replace=config.release_year),
         ]
     )
 

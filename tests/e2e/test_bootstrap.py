@@ -13,8 +13,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from scripts import bootstrap
-from scripts.bootstrap import BootstrapConfig, main
+from scripts import bootstrap  # noqa: E402
+from scripts.bootstrap import BootstrapConfig, main  # noqa: E402
 
 
 def async_timeout(delay: float) -> Any:
@@ -126,6 +126,10 @@ class TestMain:
                         return MockParent()
 
                 return MockResolved()
+
+            @classmethod
+            def cwd(cls) -> Path:
+                return target_directory
 
         monkeypatch.setattr(bootstrap, "Path", MockPath)
 

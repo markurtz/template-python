@@ -12,8 +12,13 @@ from pydantic import ValidationError
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from scripts import bootstrap
-from scripts.bootstrap import IS_INTERACTIVE, BootstrapConfig, ReplacementRule, main
+from scripts import bootstrap  # noqa: E402
+from scripts.bootstrap import (  # noqa: E402
+    IS_INTERACTIVE,
+    BootstrapConfig,
+    ReplacementRule,
+    main,
+)
 
 
 @pytest.fixture(autouse=True)
