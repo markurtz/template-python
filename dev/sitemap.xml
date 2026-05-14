@@ -1,71 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/agents/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/agents/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/code-of-conduct/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/code-of-conduct/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/contributing/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/contributing/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/developing/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/developing/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/security/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/security/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/community/support/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/community/support/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/examples/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/examples/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/getting-started/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/getting-started/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/getting-started/installation/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/getting-started/installation/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/getting-started/quickstart/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/getting-started/quickstart/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/guides/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/guides/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/guides/github-workflows/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/guides/github-workflows/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/guides/repository-setup/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/guides/repository-setup/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/reference/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/reference/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://{{org_name}}.github.io/{{project_name}}/dev/reference/api/</loc>
-         <lastmod>2026-05-13</lastmod>
+         <loc>https://markurtz.github.io/template-python/dev/reference/api/SUMMARY/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://markurtz.github.io/template-python/dev/reference/api/template_python/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://markurtz.github.io/template-python/dev/reference/api/template_python/compat/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://markurtz.github.io/template-python/dev/reference/api/template_python/logging/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://markurtz.github.io/template-python/dev/reference/api/template_python/settings/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
 </urlset>
