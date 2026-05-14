@@ -74,7 +74,7 @@ A pre-built Docker image is available for containerized environments:
 docker pull ghcr.io/markurtz/template-python:latest
 
 # Run a one-off command
-docker run --rm ghcr.io/markurtz/template-python:latest python -c "import template_python; print(template-python.__version__)"
+docker run --rm ghcr.io/markurtz/template-python:latest python -c "import template_python; print(template_python.__version__)"
 ```
 
 For a persistent, volume-mounted setup using Docker Compose, see the `docker-compose.yml` in the root of the repository.
