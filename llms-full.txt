@@ -173,10 +173,8 @@ If you use this template or the resulting software in your research, please cite
 ```bibtex
 @software{template-python,
   author = {markurtz},
-  title = template-python,
-  version = {{{version}}},
-  month = {{{month}}},
-  year = {2026},
+  title = {template-python},
+  year = {{year}},
   url = {https://github.com/markurtz/template-python}
 }
 ```

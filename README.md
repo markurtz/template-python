@@ -148,9 +148,7 @@ If you use this template or the resulting software in your research, please cite
 @software{template-python,
   author = {markurtz},
   title = {template-python},
-  version = {{{version}}},
-  month = {{{month}}},
-  year = {2026},
+  year = {{year}},
   url = {https://github.com/markurtz/template-python}
 }
 ```

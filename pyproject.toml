@@ -180,7 +180,7 @@ packages = ["src/template_python"]
 
 # --- Tool Configurations ---
 [tool.mypy]
-files = ["src/template-python", "tests"]
+files = ["src/template_python", "tests"]
 python_version = "3.10"
 warn_redundant_casts = true
 warn_unused_ignores = false
