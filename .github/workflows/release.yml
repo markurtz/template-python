@@ -49,6 +49,7 @@ jobs:
   # ── Stage 4: Versioned Docs ────────────────────────────────────────────────
   docs:
     name: "Versioned Docs"
+    needs: test
     uses: ./.github/workflows/_docs.yml
     with:
       build_type: "release"
@@ -82,11 +83,10 @@ jobs:
         uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2  # v1.5.1
         with:
           subject-path: dist/*
-      - name: Publish to PyPI
-        if: github.repository_id != 1226495532  # Skip PyPI for the template repo itself
-        uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14
-        with:
-          packages-dir: dist/
+#       - name: Publish to PyPI
+#         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14
+#         with:
+#           packages-dir: dist/
       - name: Create GitHub Release
         if: ${{ github.ref_type == 'tag' }}
         uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191  # v2.0.8

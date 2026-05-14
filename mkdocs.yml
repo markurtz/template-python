@@ -1,26 +1,26 @@
 ---
-site_name: "{{project_name}}"
-site_description: "{{project_description}}"
-site_author: "{{org_name}}"
-site_url: "https://{{org_name}}.github.io/{{project_name}}/"
-repo_url: "https://github.com/{{org_name}}/{{project_name}}"
-repo_name: "{{org_name}}/{{project_name}}"
+site_name: "template-python"
+site_description: "An opinionated, production-ready Apache 2.0 template repository for bootstrapping\
+  \ modern software projects."
+site_author: "markurtz"
+site_url: "https://markurtz.github.io/template-python/"
+repo_url: "https://github.com/markurtz/template-python"
+repo_name: "markurtz/template-python"
 edit_uri: edit/main/docs/
-# ---------------------------------------------------------------------------
-# Template Variables — Update these when using this template.
-# All {{ variable }} references across the docs site are driven from here.
-# ---------------------------------------------------------------------------
 extra:
-  project_name: "project_name"
-  project_description: "{{project_description}}"
-  org_name: "{{organization}}"
-  org_email: "conduct@{{organization}}.com"
-  docs_url: "https://{{org_name}}.github.io/{{project_name}}"
+  version:
+    provider: mike
+  project_name: "template_python"
+  project_description: "An opinionated, production-ready Apache 2.0 template repository for\
+    \ bootstrapping modern software projects."
+  org_name: "markurtz"
+#  org_email: "conduct@example.com"
+  docs_url: "https://markurtz.github.io/template-python"
   min_python: "3.9"
   current_major_version: "0"
-  slack_url: "https://slack.{{organization}}.org"
-  blog_url: "https://blog.{{organization}}.org"
-  roadmap_url: "https://github.com/{{organization}}/project_name/milestones"
+#  slack_url: "https://slack.example.com"
+#  blog_url: "https://blog.example.com"
+  roadmap_url: "https://github.com/markurtz/template-python/milestones"
 theme:
   name: material
   logo: assets/branding/icon-white.svg
@@ -97,6 +97,11 @@ markdown_extensions:
   - toc:
       permalink: true
 plugins:
+  - gen-files:
+      scripts:
+        - docs/scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
   - macros
   - mike
   - minify:

@@ -6,11 +6,10 @@ import types
 
 import pytest
 
-from project_name import compat
+from template_python import compat
 
 
 @pytest.mark.smoke
-@pytest.mark.unit
 def test_opentelemetry_trace() -> None:
     """Verify opentelemetry_trace param is correctly exported."""
     assert hasattr(compat, "opentelemetry_trace")

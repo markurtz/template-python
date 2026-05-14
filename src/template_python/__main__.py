@@ -1,17 +1,17 @@
 """
-Main entrypoint for the {{project_name}} package.
+Main entrypoint for the template_python package.
 
 This module provides the executable routine when the package is run directly
-via the command line (e.g., ``python -m project_name``). It initializes the logger
+via the command line (e.g., ``python -m template_python``). It initializes the logger
 and settings, outputting the current version and configuration to verify
 the installation and environment setup.
 """
 
 from __future__ import annotations
 
-import sys
+import click
 
-from project_name import (
+from template_python import (
     LoggingSettings,
     Settings,
     __version__,
@@ -22,7 +22,9 @@ from project_name import (
 __all__ = ["main"]
 
 
-def main() -> int:
+@click.command(context_settings={"help_option_names": ["-h", "--help"]})
+@click.version_option(version=__version__, prog_name="template-python")
+def main() -> None:
     """
     Execute the main routine.
 
@@ -33,27 +35,22 @@ def main() -> int:
     Example:
         .. code-block:: python
 
-            import sys
-            from project_name.__main__ import main
+            from template_python.__main__ import main
 
-            sys.exit(main())
-
-    :return: The exit code of the execution (0 for success).
-    :rtype: int
+            main()
     """
     configure_logger(
         LoggingSettings(
             enabled=True,
             level="INFO",
             clear_loggers=True,
-            filter=("project_name", "__main__"),
+            filter=("template_python", "__main__"),
         )
     )
-    logger.info("Hello from {{project_name}} v{}!", __version__)
+    logger.info("Hello from template-python v{}!", __version__)
     settings = Settings()
     logger.info("Settings: {}", settings)
-    return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

@@ -1,10 +1,10 @@
-# Security Policy for `project_name`
+# Security Policy for `template-python`
 
-We take the security of `project_name` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
+We take the security of `template-python` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
 
 ## Supported Versions
 
-Please check the table below for the versions of `project_name` that are currently being supported with security updates.
+Please check the table below for the versions of `template-python` that are currently being supported with security updates.
 
 | Version                         | Supported          |
 | :------------------------------ | :----------------- |
@@ -20,8 +20,8 @@ Please check the table below for the versions of `project_name` that are current
 
 If you discover a security vulnerability, please bring it to our attention right away using one of the following methods:
 
-1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/security/advisories)** of this repository.
-1. **Email:** Send your report directly to **[INSERT EMAIL ADDRESS OR SECURITY CONTACT]**. *(Optional: Encrypt your email using our PGP key: [INSERT PGP KEY LINK/FINGERPRINT])*
+1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/markurtz/template-python/security/advisories)** of this repository.
+1. **Email:** Send your report directly to **contact the maintainers**.
 
 ### What to Include in Your Report
 
@@ -31,7 +31,7 @@ To help us resolve the issue quickly, please include the following information:
 - **Detailed description** of the vulnerability and its potential impact.
 - **Step-by-step instructions** to reproduce the issue.
 - **Proof of Concept (PoC)** code or screenshots, if available.
-- **Environment details** (e.g., version of `project_name`, OS, Python version, relevant configurations).
+- **Environment details** (e.g., version of `template-python`, OS, Python version, relevant configurations).
 
 ## Triage and Resolution Process
 
@@ -46,13 +46,13 @@ We will handle your report with strict confidentiality. Our process is as follow
 
 **In Scope:**
 
-- Vulnerabilities within the core `project_name` codebase.
+- Vulnerabilities within the core `template-python` codebase.
 - Security issues resulting from our default configurations or execution paths.
 
 **Out of Scope:**
 
 - Theoretical issues without a reproducible PoC.
-- Vulnerabilities in third-party dependencies that are not exploitable through `project_name`.
-- Issues requiring the victim to intentionally clone and run `project_name` against a malicious, untrusted Git repository, unless it leads to unexpected system compromise beyond the expected permissions.
+- Vulnerabilities in third-party dependencies that are not exploitable through `template-python`.
+- Issues requiring the victim to intentionally clone and run `template-python` against a malicious, untrusted Git repository, unless it leads to unexpected system compromise beyond the expected permissions.
 
 *(Note: We currently do not operate a bug bounty program. Disclosures are greatly appreciated but are not eligible for financial rewards at this time.)*

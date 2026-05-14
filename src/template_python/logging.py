@@ -1,9 +1,8 @@
 """
-Loguru-based logging configuration and environment settings for project_name.
+Loguru-based logging configuration and environment settings for template_python.
 
 This module provides a unified interface for configuring application-level logging
 using loguru and Pydantic settings. It handles dynamic OpenTelemetry formatting,
-sink resolution, and configurable log levels to ensure consistent telemetry
 across the codebase and build environments.
 """
 
@@ -20,7 +19,7 @@ from loguru import logger
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from project_name.compat import opentelemetry_trace
+from template_python.compat import opentelemetry_trace
 
 __all__ = ["LoggingSettings", "configure_logger", "logger"]
 
@@ -32,13 +31,13 @@ class LoggingSettings(BaseSettings):
     Settings model for configuring the loguru logging infrastructure.
 
     This Pydantic model loads configuration from environment variables prefixed
-    with ``PROJECT_NAME__LOGGING__`` and provides typed fields for controlling
+    with ``TEMPLATE_PYTHON__LOGGING__`` and provides typed fields for controlling
     log output, formatting, and OpenTelemetry integration.
 
     Example:
         .. code-block:: python
 
-            from project_name.logging import LoggingSettings, configure_logger
+            from template_python.logging import LoggingSettings, configure_logger
 
             settings = LoggingSettings(enabled=True, level="DEBUG")
             configure_logger(settings)
@@ -47,7 +46,7 @@ class LoggingSettings(BaseSettings):
     enabled: bool = Field(
         default=False,
         description=(
-            "Whether to enable project_name loguru logging across the application."
+            "Whether to enable template_python loguru logging across the application."
         ),
     )
     clear_loggers: bool = Field(
@@ -85,7 +84,7 @@ class LoggingSettings(BaseSettings):
         default=True,
         description=(
             "Filters log records. Defaults to True to filter by the "
-            "'project_name' prefix."
+            "'template_python' prefix."
         ),
     )
     enqueue: bool = Field(
@@ -100,7 +99,7 @@ class LoggingSettings(BaseSettings):
     )
 
     model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(
-        env_prefix="PROJECT_NAME__LOGGING__",
+        env_prefix="TEMPLATE_PYTHON__LOGGING__",
         env_nested_delimiter="__",
     )
     """Pydantic configuration dict dictating environment variable prefixes."""
@@ -136,7 +135,7 @@ def _otel_formatter(record: dict[str, Any]) -> str:
         "timestamp": record["time"].isoformat(),
         "severity_text": record["level"].name,
         "body": record["message"],
-        "resource": {"service.name": "project_name"},
+        "resource": {"service.name": "template_python"},
         "attributes": {
             "module": record["name"],
             "function": record["function"],
@@ -179,7 +178,7 @@ def configure_logger(settings: LoggingSettings | None = None) -> None:
     Example:
         .. code-block:: python
 
-            from project_name.logging import configure_logger, LoggingSettings
+            from template_python.logging import configure_logger, LoggingSettings
 
             configure_logger(LoggingSettings(level="DEBUG"))
 
@@ -194,10 +193,10 @@ def configure_logger(settings: LoggingSettings | None = None) -> None:
     settings = settings or LoggingSettings()
 
     if not settings.enabled:
-        logger.disable("project_name")
+        logger.disable("template_python")
         return
 
-    logger.enable("project_name")
+    logger.enable("template_python")
 
     if settings.clear_loggers:
         logger.remove()
@@ -216,7 +215,7 @@ def configure_logger(settings: LoggingSettings | None = None) -> None:
         )
 
     log_format = _otel_formatter if use_otel else settings.format
-    filter_val = "project_name" if settings.filter is True else settings.filter
+    filter_val = "template_python" if settings.filter is True else settings.filter
 
     if isinstance(filter_val, (list, tuple)):
         prefixes = tuple(filter_val)

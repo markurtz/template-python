@@ -1,6 +1,6 @@
-# Contributing to project_name
+# Contributing to template-python
 
-First off, thank you for considering contributing to `project_name`! It's people like you that make this project great.
+First off, thank you for considering contributing to `template-python`! It's people like you that make this project great.
 
 ## Code of Conduct
 
@@ -15,13 +15,13 @@ If you discover a security issue, please refer to our [Security Policy](SECURITY
 
 ## How Can I Contribute?
 
-There are many ways to contribute to `project_name`, and not all of them involve writing code:
+There are many ways to contribute to `template-python`, and not all of them involve writing code:
 
 - **Reporting Bugs:** Help us improve by submitting detailed bug reports via our issue tracker.
 - **Suggesting Features:** Propose new features or enhancements that could benefit the project.
 - **Improving Documentation:** Fix typos, add examples, or write new guides.
 - **Writing Code:** Fix bugs, implement features, or improve performance.
-- **Helping Others:** Answer questions in [Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions) or issue comments.
+- **Helping Others:** Answer questions in [Discussions](https://github.com/markurtz/template-python/discussions) or issue comments.
 
 For general questions and help, please see [SUPPORT.md](SUPPORT.md).
 
@@ -45,7 +45,7 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ### 3. Making Changes
 
-1. **Fork the Repository:** Fork the `project_name` repository to your GitHub account.
+1. **Fork the Repository:** Fork the `template-python` repository to your GitHub account.
 1. **Create a Branch:** Create a new branch from `main` for your work (e.g., `git checkout -b feat/add-new-feature`).
 1. **Write Code:** Implement your changes, adhering to the project's coding standards.
 1. **Write Tests:** Add unit tests or integration tests for your changes to ensure stability.
@@ -67,4 +67,4 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ## Licensing
 
-By contributing to `project_name`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
+By contributing to `template-python`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).

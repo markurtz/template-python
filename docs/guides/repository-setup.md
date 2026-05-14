@@ -6,20 +6,18 @@ This guide acts as a checklist for the project maintainer. Once these steps are 
 
 ## 1. Bootstrap the repository
 
-Before making any manual changes, run the included bootstrap script to automatically replace all placeholder variables (like `project_name` and `{{organization}}`) with your actual project details.
+Before making any manual changes, run the included interactive bootstrap script to automatically replace all placeholder variables (like `template-python` and `markurtz`) with your actual project details.
 
 ```bash
-./scripts/bootstrap.sh \
-  --project-name my-cool-project \
-  --project-desc "A description of my cool project" \
-  --organization my-org \
-  --org-name "My Organization"
+uv run scripts/bootstrap.py
 ```
 
-> [!NOTE]
-> This script will rename the source directory (`src/project_name/` -> `src/my_cool_project/`) and update all references in the documentation, GitHub Actions workflows, and configuration files.
+The script will interactively prompt you for your project details (organization, project name, descriptions, and feature toggles) and automatically configure the repository.
 
-Once you have verified the changes, you can safely delete the `scripts/bootstrap.sh` file and commit the updates.
+> [!NOTE]
+> This script will rename the source directory (`src/template_python/` -> `src/my_cool_project/`) and update all references in the documentation, GitHub Actions workflows, and configuration files.
+
+Once you have verified the changes and chosen to finalize the bootstrap process, the script will automatically delete itself and its related end-to-end tests. Commit the updates.
 
 ## 2. Configure GitHub settings
 

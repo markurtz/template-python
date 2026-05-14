@@ -1,27 +1,27 @@
-# project_name Full Documentation
+# template-python Full Documentation
 
 This file contains the concatenated core documentation for the project to provide comprehensive context to LLMs.
 
-# project_name
+# template-python
 
 > An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern software projects.
 
-`project_name` is designed to eliminate boilerplate and enforce consistency across an organization's repositories.
+`template-python` is designed to eliminate boilerplate and enforce consistency across an organization's repositories.
 For comprehensive context and full documentation, please see [llms-full.txt](llms-full.txt).
 
 ## Docs
-- [Home](https://{{organization}}.github.io/project_name/): Documentation site home page
-- [Getting Started](https://{{organization}}.github.io/project_name/getting-started/): Installation, quickstart, and workflow guides
-- [Guides](https://{{organization}}.github.io/project_name/guides/): How-to guides for common tasks
-- [API Reference](https://{{organization}}.github.io/project_name/reference/): Full API reference documentation
+- [Home](https://markurtz.github.io/template-python/): Documentation site home page
+- [Getting Started](https://markurtz.github.io/template-python/getting-started/): Installation, quickstart, and workflow guides
+- [Guides](https://markurtz.github.io/template-python/guides/): How-to guides for common tasks
+- [API Reference](https://markurtz.github.io/template-python/reference/): Full API reference documentation
 
 ## Repository Files
-- [README.md](https://github.com/{{organization}}/project_name/blob/main/README.md): Project overview and quick start
-- [AGENTS.md](https://github.com/{{organization}}/project_name/blob/main/AGENTS.md): AI agent coding instructions
-- [DEVELOPING.md](https://github.com/{{organization}}/project_name/blob/main/DEVELOPING.md): Developer setup guide
+- [README.md](https://github.com/markurtz/template-python/blob/main/README.md): Project overview and quick start
+- [AGENTS.md](https://github.com/markurtz/template-python/blob/main/AGENTS.md): AI agent coding instructions
+- [DEVELOPING.md](https://github.com/markurtz/template-python/blob/main/DEVELOPING.md): Developer setup guide
 
 ## Optional
-- [Full Documentation](https://{{organization}}.github.io/project_name/llms-full.txt): The complete concatenated documentation for project_name
+- [Full Documentation](https://markurtz.github.io/template-python/llms-full.txt): The complete concatenated documentation for template-python
 
 
 ## File: README.md
@@ -30,7 +30,7 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/branding/logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="docs/assets/branding/logo-light.svg">
-    <img alt="project_name Logo" src="docs/assets/branding/logo-light.svg" width="400">
+    <img alt="template-python Logo" src="docs/assets/branding/logo-light.svg" width="400">
   </picture>
 </p>
 
@@ -40,28 +40,28 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
 
 <p align="center">
   <!-- Package & Release Status -->
-  <a href="https://github.com/{{organization}}/project_name/releases">
-    <img src="https://img.shields.io/github/v/release/{{organization}}/project_name?label=Release" alt="GitHub Release">
+  <a href="https://github.com/markurtz/template-python/releases">
+    <img src="https://img.shields.io/github/v/release/markurtz/template-python?label=Release" alt="GitHub Release">
   </a>
-  <a href="https://pypi.org/project/project_name/">
-    <img src="https://img.shields.io/pypi/v/project_name?label=PyPI" alt="PyPI Release">
-  </a>
-  <a href="https://pypi.org/project/project_name/">
-    <img src="https://img.shields.io/pypi/pyversions/project_name?label=Python" alt="Supported Python Versions">
-  </a>
+<!--   <a href="https://pypi.org/project/template-python/">
+    <img src="https://img.shields.io/pypi/v/template-python?label=PyPI" alt="PyPI Release">
+  </a> -->
+<!--   <a href="https://pypi.org/project/template-python/">
+    <img src="https://img.shields.io/pypi/pyversions/template-python?label=Python" alt="Supported Python Versions">
+  </a> -->
   <br/>
   <!-- CI/CD & Build Status -->
-  <a href="https://github.com/{{organization}}/project_name/actions/workflows/main.yml">
-    <img src="https://github.com/{{organization}}/project_name/actions/workflows/main.yml/badge.svg" alt="CI Status">
+  <a href="https://github.com/markurtz/template-python/actions/workflows/main.yml">
+    <img src="https://github.com/markurtz/template-python/actions/workflows/main.yml/badge.svg" alt="CI Status">
   </a>
   <br/>
   <!-- Issues & Support -->
-  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-closed/{{organization}}/project_name?label=Issues%20Closed" alt="Closed Issues">
+  <a href="https://github.com/markurtz/template-python/issues?q=is%3Aissue+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-closed/markurtz/template-python?label=Issues%20Closed" alt="Closed Issues">
   </a>
   <!-- Uncomment to display open issues:
-  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aopen">
-    <img src="https://img.shields.io/github/issues/{{organization}}/project_name?label=Issues%20Open" alt="Open Issues">
+  <a href="https://github.com/markurtz/template-python/issues?q=is%3Aissue+is%3Aopen">
+    <img src="https://img.shields.io/github/issues/markurtz/template-python?label=Issues%20Open" alt="Open Issues">
   </a>
   -->
   <a href="https://opensource.org/licenses/Apache-2.0">
@@ -70,10 +70,10 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
 </p>
 
 <p align="center">
-  <a href="https://{{organization}}.github.io/project_name">Documentation</a> |
-  <a href="https://github.com/{{organization}}/project_name/milestones">Roadmap</a> |
-  <a href="https://github.com/{{organization}}/project_name/issues">Issues</a> |
-  <a href="https://github.com/{{organization}}/project_name/discussions">Discussions</a>
+  <a href="https://markurtz.github.io/template-python">Documentation</a> |
+  <a href="https://github.com/markurtz/template-python/milestones">Roadmap</a> |
+  <a href="https://github.com/markurtz/template-python/issues">Issues</a> |
+  <a href="https://github.com/markurtz/template-python/discussions">Discussions</a>
 </p>
 
 ______________________________________________________________________
@@ -88,11 +88,11 @@ ______________________________________________________________________
   </picture>
 </p>
 
-Welcome to the project_name template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
+Welcome to the template-python template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, simply find and replace all instances of `project_name` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
+To use this template, run `uv run scripts/bootstrap.py` to automatically configure your project with your organization and repository details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
 
-### Why Use project_name?
+### Why Use template-python?
 
 - **Consistency:** Enforces a standardized layout and structure across your organization's repositories.
 - **Speed:** Bootstraps your project with pre-configured Actions, badges, and templates so you don't start from scratch.
@@ -100,9 +100,9 @@ To use this template, simply find and replace all instances of `project_name` an
 
 ### Comparisons
 
-When evaluating project_name against other templates, consider the following differences:
+When evaluating template-python against other templates, consider the following differences:
 
-| Feature            | project_name Template            | Standard GitHub Init | Cookiecutter / Copier      |
+| Feature            | template-python Template            | Standard GitHub Init | Cookiecutter / Copier      |
 | :----------------- | :------------------------------- | :------------------- | :------------------------- |
 | **Setup Speed**    | Very Fast                        | Fast                 | Slower (requires CLI tool) |
 | **Visual Assets**  | Pre-configured Light/Dark assets | None                 | Varies                     |
@@ -111,7 +111,7 @@ When evaluating project_name against other templates, consider the following dif
 
 ## What's New
 
-**Welcome to the project_name Launch!**
+**Welcome to the template-python Launch!**
 
 This project has just been instantiated from the template repository. Keep an eye on this section for future release highlights, new features, and community announcements!
 
@@ -120,10 +120,10 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-pip install project_name
+pip install template-python
 ```
 
-For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://%7B%7Borganization%7D%7D.github.io/%7B%7Bproject_name%7D%7D/getting-started/)**.
+For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://markurtz.github.io/template-python/getting-started/)**.
 
 ## Core Concepts
 
@@ -133,7 +133,7 @@ This project is built using modern Python tooling, enforcing strict code quality
 
 The repository is structured to separate documentation, application logic, and testing cleanly:
 
-- `src/project_name/`: The primary application source code.
+- `src/template_python/`: The primary application source code.
 - `tests/`: Comprehensive test suite ensuring reliability, organized into `unit/`, `integration/`, and `e2e/`.
 - `docs/`: Source code for the MkDocs Material documentation site, including step-by-step guides, references, and getting started tutorials.
 - `examples/`: Runnable reference projects demonstrating real-world configurations.
@@ -171,13 +171,11 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 If you use this template or the resulting software in your research, please cite it using the following BibTeX entry:
 
 ```bibtex
-@software{project_name,
-  author = {{{organization}}},
-  title = {project_name},
-  version = {{{version}}},
-  month = {{{month}}},
-  year = {2026},
-  url = {https://github.com/{{organization}}/project_name}
+@software{template-python,
+  author = {markurtz},
+  title = {template-python},
+  year = {{year}},
+  url = {https://github.com/markurtz/template-python}
 }
 ```
 
@@ -191,7 +189,7 @@ If you use this template or the resulting software in your research, please cite
 
 ## Project Context
 
-**`project_name`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
+**`template-python`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
 **Primary language:** `Python 3.10+`\
 **Package manager:** `Hatch`
 
@@ -240,7 +238,7 @@ If you use this template or the resulting software in your research, please cite
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `{{organization}}`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `template-python`, `markurtz`).
 
 ## Agent Notes
 
@@ -249,7 +247,7 @@ _Add notes here when updating instructions for AI agents._
 
 ## File: DEVELOPING.md
 
-# Developing `project_name`
+# Developing `template-python`
 
 This guide provides instructions for setting up your development environment, navigating the project structure, and adhering to our coding standards.
 
@@ -273,8 +271,8 @@ Ensure your system meets the following requirements before getting started:
 > Once implemented, you can spin up the development environment with:
 >
 > ```bash
-> git clone https://github.com/{{organization}}/project_name.git
-> cd project_name
+> git clone https://github.com/markurtz/template-python.git
+> cd template-python
 >
 > # Build and start the development environment in the background
 > docker-compose up -d --build
@@ -457,9 +455,9 @@ For further assistance, please refer to our [SUPPORT.md](SUPPORT.md).
 
 ## File: CONTRIBUTING.md
 
-# Contributing to project_name
+# Contributing to template-python
 
-First off, thank you for considering contributing to `project_name`! It's people like you that make this project great.
+First off, thank you for considering contributing to `template-python`! It's people like you that make this project great.
 
 ## Code of Conduct
 
@@ -474,13 +472,13 @@ If you discover a security issue, please refer to our [Security Policy](SECURITY
 
 ## How Can I Contribute?
 
-There are many ways to contribute to `project_name`, and not all of them involve writing code:
+There are many ways to contribute to `template-python`, and not all of them involve writing code:
 
 - **Reporting Bugs:** Help us improve by submitting detailed bug reports via our issue tracker.
 - **Suggesting Features:** Propose new features or enhancements that could benefit the project.
 - **Improving Documentation:** Fix typos, add examples, or write new guides.
 - **Writing Code:** Fix bugs, implement features, or improve performance.
-- **Helping Others:** Answer questions in [Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions) or issue comments.
+- **Helping Others:** Answer questions in [Discussions](https://github.com/markurtz/template-python/discussions) or issue comments.
 
 For general questions and help, please see [SUPPORT.md](SUPPORT.md).
 
@@ -504,7 +502,7 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ### 3. Making Changes
 
-1. **Fork the Repository:** Fork the `project_name` repository to your GitHub account.
+1. **Fork the Repository:** Fork the `template-python` repository to your GitHub account.
 1. **Create a Branch:** Create a new branch from `main` for your work (e.g., `git checkout -b feat/add-new-feature`).
 1. **Write Code:** Implement your changes, adhering to the project's coding standards.
 1. **Write Tests:** Add unit tests or integration tests for your changes to ensure stability.
@@ -526,18 +524,18 @@ Before you start coding, please refer to our [Development Guide](DEVELOPING.md) 
 
 ## Licensing
 
-By contributing to `project_name`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
+By contributing to `template-python`, you agree that your contributions will be licensed under its [Apache 2.0 License](LICENSE).
 
 
 ## File: SECURITY.md
 
-# Security Policy for `project_name`
+# Security Policy for `template-python`
 
-We take the security of `project_name` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
+We take the security of `template-python` seriously. This document outlines our security policies, supported versions, and how to responsibly disclose a vulnerability.
 
 ## Supported Versions
 
-Please check the table below for the versions of `project_name` that are currently being supported with security updates.
+Please check the table below for the versions of `template-python` that are currently being supported with security updates.
 
 | Version                         | Supported          |
 | :------------------------------ | :----------------- |
@@ -553,7 +551,7 @@ Please check the table below for the versions of `project_name` that are current
 
 If you discover a security vulnerability, please bring it to our attention right away using one of the following methods:
 
-1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/security/advisories)** of this repository.
+1. **GitHub Security Advisories (Preferred):** Use the "Report a vulnerability" button on the **[Security tab](https://github.com/markurtz/template-python/security/advisories)** of this repository.
 1. **Email:** Send your report directly to **[INSERT EMAIL ADDRESS OR SECURITY CONTACT]**. *(Optional: Encrypt your email using our PGP key: [INSERT PGP KEY LINK/FINGERPRINT])*
 
 ### What to Include in Your Report
@@ -564,7 +562,7 @@ To help us resolve the issue quickly, please include the following information:
 - **Detailed description** of the vulnerability and its potential impact.
 - **Step-by-step instructions** to reproduce the issue.
 - **Proof of Concept (PoC)** code or screenshots, if available.
-- **Environment details** (e.g., version of `project_name`, OS, Python version, relevant configurations).
+- **Environment details** (e.g., version of `template-python`, OS, Python version, relevant configurations).
 
 ## Triage and Resolution Process
 
@@ -579,23 +577,23 @@ We will handle your report with strict confidentiality. Our process is as follow
 
 **In Scope:**
 
-- Vulnerabilities within the core `project_name` codebase.
+- Vulnerabilities within the core `template-python` codebase.
 - Security issues resulting from our default configurations or execution paths.
 
 **Out of Scope:**
 
 - Theoretical issues without a reproducible PoC.
-- Vulnerabilities in third-party dependencies that are not exploitable through `project_name`.
-- Issues requiring the victim to intentionally clone and run `project_name` against a malicious, untrusted Git repository, unless it leads to unexpected system compromise beyond the expected permissions.
+- Vulnerabilities in third-party dependencies that are not exploitable through `template-python`.
+- Issues requiring the victim to intentionally clone and run `template-python` against a malicious, untrusted Git repository, unless it leads to unexpected system compromise beyond the expected permissions.
 
 *(Note: We currently do not operate a bug bounty program. Disclosures are greatly appreciated but are not eligible for financial rewards at this time.)*
 
 
 ## File: SUPPORT.md
 
-# Support for `project_name`
+# Support for `template-python`
 
-We are excited to have you use `project_name`! If you need help, please follow these guidelines to ensure you get support quickly and efficiently.
+We are excited to have you use `template-python`! If you need help, please follow these guidelines to ensure you get support quickly and efficiently.
 
 ## Security Vulnerabilities
 
@@ -608,9 +606,9 @@ If you have found a security vulnerability, please refer to our [Security Policy
 
 Before reaching out, we recommend checking the following resources. Many common questions and issues are already covered there.
 
-- **[Official Documentation](https://%7B%7Borganization%7D%7D.github.io/%7B%7Bproject_name%7D%7D):** Comprehensive guides, tutorials, and API references.
-- **[GitHub Issues](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/issues):** Search existing issues to see if someone else has already reported your problem or requested your feature. Feel free to add a "+1" reaction to existing issues to show your interest.
-- **[GitHub Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions):** Search our discussions for Q&A, general advice, and community knowledge.
+- **[Official Documentation](https://markurtz.github.io/template-python):** Comprehensive guides, tutorials, and API references.
+- **[GitHub Issues](https://github.com/markurtz/template-python/issues):** Search existing issues to see if someone else has already reported your problem or requested your feature. Feel free to add a "+1" reaction to existing issues to show your interest.
+- **[GitHub Discussions](https://github.com/markurtz/template-python/discussions):** Search our discussions for Q&A, general advice, and community knowledge.
 
 ## Opening a New Issue
 
@@ -618,9 +616,9 @@ If you cannot find an answer in the documentation or existing issues, please ope
 
 | Issue Type             | Venue                                                                                                      | Description                                                                                                 |
 | :--------------------- | :--------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
-| **Bug Report**         | [GitHub Issues](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/issues/new)           | Use the "Bug Report" template. Provide reproducible steps, environment details, and relevant logs.          |
-| **Feature Request**    | [GitHub Issues](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/issues/new)           | Use the "Feature Request" template. Clearly describe your use case and the problem the feature would solve. |
-| **Q&A / General Help** | [GitHub Discussions](https://github.com/%7B%7Borganization%7D%7D/%7B%7Bproject_name%7D%7D/discussions/new) | Start a discussion for questions about how to use `project_name`, architecture queries, or advice.          |
+| **Bug Report**         | [GitHub Issues](https://github.com/markurtz/template-python/issues/new)           | Use the "Bug Report" template. Provide reproducible steps, environment details, and relevant logs.          |
+| **Feature Request**    | [GitHub Issues](https://github.com/markurtz/template-python/issues/new)           | Use the "Feature Request" template. Clearly describe your use case and the problem the feature would solve. |
+| **Q&A / General Help** | [GitHub Discussions](https://github.com/markurtz/template-python/discussions/new) | Start a discussion for questions about how to use `template-python`, architecture queries, or advice.          |
 
 Feel free to join the conversation on GitHub Discussions to connect with other users and maintainers.
 
@@ -628,4 +626,4 @@ Feel free to join the conversation on GitHub Discussions to connect with other u
 
 
 
-At this time, there is no official commercial support available for `project_name`. Support is provided on a best-effort basis by the open-source community and maintainers.
+At this time, there is no official commercial support available for `template-python`. Support is provided on a best-effort basis by the open-source community and maintainers.
