@@ -7,7 +7,7 @@ This guide gets you from a fresh installation to running your first command in u
 
 ## Step 1 — Initialize Your Environment
 
-If you haven't already, set up your project and install `{{ project_name }}`:
+If you haven't already, set up your project and install `template-python`:
 
 ```bash
 python -m venv .venv
@@ -18,41 +18,44 @@ pip install project_name
 ## Step 2 — Verify the Install
 
 ```bash
-{{ project_name }} --version
+project_name
 ```
 
 Expected output:
 
 ```console
-{{ project_name }} 0.1.0
+Hello from project_name v0.1.0!
+Settings: Settings(environment='development', project_root=PosixPath('...'))
 ```
 
 ## Step 3 — Run Your First Command
 
 ```python
-from project_name import Client
+from project_name import Settings, configure_logger, logger
+from project_name.logging import LoggingSettings
 
-# Initialize the client
-client = Client(api_key="YOUR_KEY")
+# Initialize the global logger
+configure_logger(LoggingSettings(enabled=True, level="INFO"))
 
-# Run a core action
-result = client.run_action("hello_world")
-print(result)
+# Load application settings
+settings = Settings(environment="production")
+
+# Log the current configuration
+logger.info("Application initialized with settings: {}", settings)
 ```
 
 Expected output:
 
 ```console
-[INFO] Initializing {{ project_name }} client...
-[SUCCESS] Action completed! Result: Hello, World from {{ project_name }}!
+2026-05-13 12:00:00 | INFO     | __main__:<module> - Application initialized with settings: Settings(environment='production', project_root=PosixPath('...'))
 ```
 
 > [!TIP]
-> Replace `"YOUR_KEY"` with your actual API key or credentials. See the [Reference](../reference/index.md) for all available client configuration options.
+> See the [Reference](../reference/index.md) for all available configuration options.
 
 ## Step 4 — Explore Further
 
-Now that your first command works, explore what `{{ project_name }}` can do:
+Now that your first command works, explore what `template-python` can do:
 
 - **[Guides](../guides/index.md)** — Task-specific deep dives including CI/CD and repository setup
 - **[Reference](../reference/index.md)** — Full API and CLI documentation

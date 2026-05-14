@@ -1,6 +1,6 @@
 # Reference
 
-The Reference section contains the complete technical documentation for {{ project_name }} — API classes and configuration options. This is the section to bookmark when you need to look something up.
+The Reference section contains the complete technical documentation for template-python — API classes and configuration options. This is the section to bookmark when you need to look something up.
 
 ## In This Section
 
@@ -22,9 +22,11 @@ Auto-generated documentation for all public classes, methods, and modules.
 
 ______________________________________________________________________
 
-Coverage reports are generated during CI/CD or locally.
+Run `hatch run test:all-cov` to generate HTML reports locally, or view the latest pipeline runs:
 
-Run `hatch run test:all-cov` to generate HTML reports in `docs/coverage/`.
+- [:octicons-arrow-right-24: Unit Tests](../coverage/unit/htmlcov/index.html)
+- [:octicons-arrow-right-24: Integration Tests](../coverage/integration/htmlcov/index.html)
+- [:octicons-arrow-right-24: End-to-End Tests](../coverage/e2e/htmlcov/index.html)
 
 </div>
 
@@ -32,23 +34,20 @@ Run `hatch run test:all-cov` to generate HTML reports in `docs/coverage/`.
 
 ## Python API Usage
 
-While `project_name` is primarily used as a build plugin, it can also be used programmatically in your own Python scripts:
+`project_name` can also be used programmatically in your own Python scripts:
 
 ```python
-from project_name import Settings, resolve_version
-from project_name.utils import BuildEnvironment, GitRepository
+from project_name import Settings, configure_logger, logger
+from project_name.logging import LoggingSettings
 
-# Resolve the version using default settings
-version, ref = resolve_version(
-    Settings(), GitRepository(), BuildEnvironment()
-)
-print(f"Resolved version: {version}")
+# Initialize the global logger
+configure_logger(LoggingSettings(enabled=True, level="INFO"))
 
-# Or pass custom settings
-custom_settings = Settings(package_name="my_pkg", source_type=["commit"])
-version, ref = resolve_version(
-    custom_settings, GitRepository(), BuildEnvironment()
-)
+# Load application settings
+settings = Settings(environment="production")
+
+# Log the current configuration
+logger.info("Application initialized with settings: {}", settings)
 ```
 
 ## Generating Reference Docs

@@ -22,7 +22,7 @@ Ensure your system meets the following requirements before getting started:
 > Once implemented, you can spin up the development environment with:
 >
 > ```bash
-> git clone https://github.com/{{organization}}/project_name.git
+> git clone https://github.com/markurtz/project_name.git
 > cd project_name
 >
 > # Build and start the development environment in the background

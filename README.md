@@ -92,10 +92,14 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-pip install template-python
+./scripts/bootstrap.sh \
+  --project-name my-app \
+  --project-desc "My cool application" \
+  --organization my-org \
+  --org-name my-org
 ```
 
-For full installation options (from source, Docker, platform-specific notes) and step-by-step onboarding, see the **[Getting Started guide](https://markurtz.github.io/template-python/getting-started/)**.
+For full setup instructions including GitHub settings, publishing, and docs, see the **[Repository Setup Guide](https://markurtz.github.io/template-python/guides/repository-setup/)**.
 
 ## Core Concepts
 

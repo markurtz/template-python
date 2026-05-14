@@ -54,7 +54,7 @@
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `{{organization}}`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `markurtz`).
 
 ## Agent Notes
 

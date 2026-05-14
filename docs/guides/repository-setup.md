@@ -6,7 +6,7 @@ This guide acts as a checklist for the project maintainer. Once these steps are 
 
 ## 1. Bootstrap the repository
 
-Before making any manual changes, run the included bootstrap script to automatically replace all placeholder variables (like `project_name` and `{{organization}}`) with your actual project details.
+Before making any manual changes, run the included bootstrap script to automatically replace all placeholder variables (like `project_name` and `markurtz`) with your actual project details.
 
 ```bash
 ./scripts/bootstrap.sh \

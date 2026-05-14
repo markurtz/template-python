@@ -10,18 +10,18 @@ This file contains the concatenated core documentation for the project to provid
 For comprehensive context and full documentation, please see [llms-full.txt](llms-full.txt).
 
 ## Docs
-- [Home](https://{{organization}}.github.io/project_name/): Documentation site home page
-- [Getting Started](https://{{organization}}.github.io/project_name/getting-started/): Installation, quickstart, and workflow guides
-- [Guides](https://{{organization}}.github.io/project_name/guides/): How-to guides for common tasks
-- [API Reference](https://{{organization}}.github.io/project_name/reference/): Full API reference documentation
+- [Home](https://markurtz.github.io/project_name/): Documentation site home page
+- [Getting Started](https://markurtz.github.io/project_name/getting-started/): Installation, quickstart, and workflow guides
+- [Guides](https://markurtz.github.io/project_name/guides/): How-to guides for common tasks
+- [API Reference](https://markurtz.github.io/project_name/reference/): Full API reference documentation
 
 ## Repository Files
-- [README.md](https://github.com/{{organization}}/project_name/blob/main/README.md): Project overview and quick start
-- [AGENTS.md](https://github.com/{{organization}}/project_name/blob/main/AGENTS.md): AI agent coding instructions
-- [DEVELOPING.md](https://github.com/{{organization}}/project_name/blob/main/DEVELOPING.md): Developer setup guide
+- [README.md](https://github.com/markurtz/project_name/blob/main/README.md): Project overview and quick start
+- [AGENTS.md](https://github.com/markurtz/project_name/blob/main/AGENTS.md): AI agent coding instructions
+- [DEVELOPING.md](https://github.com/markurtz/project_name/blob/main/DEVELOPING.md): Developer setup guide
 
 ## Optional
-- [Full Documentation](https://{{organization}}.github.io/project_name/llms-full.txt): The complete concatenated documentation for project_name
+- [Full Documentation](https://markurtz.github.io/project_name/llms-full.txt): The complete concatenated documentation for project_name
 
 
 ## File: README.md
@@ -40,8 +40,8 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
 
 <p align="center">
   <!-- Package & Release Status -->
-  <a href="https://github.com/{{organization}}/project_name/releases">
-    <img src="https://img.shields.io/github/v/release/{{organization}}/project_name?label=Release" alt="GitHub Release">
+  <a href="https://github.com/markurtz/project_name/releases">
+    <img src="https://img.shields.io/github/v/release/markurtz/project_name?label=Release" alt="GitHub Release">
   </a>
   <a href="https://pypi.org/project/project_name/">
     <img src="https://img.shields.io/pypi/v/project_name?label=PyPI" alt="PyPI Release">
@@ -51,17 +51,17 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
   </a>
   <br/>
   <!-- CI/CD & Build Status -->
-  <a href="https://github.com/{{organization}}/project_name/actions/workflows/main.yml">
-    <img src="https://github.com/{{organization}}/project_name/actions/workflows/main.yml/badge.svg" alt="CI Status">
+  <a href="https://github.com/markurtz/project_name/actions/workflows/main.yml">
+    <img src="https://github.com/markurtz/project_name/actions/workflows/main.yml/badge.svg" alt="CI Status">
   </a>
   <br/>
   <!-- Issues & Support -->
-  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aclosed">
-    <img src="https://img.shields.io/github/issues-closed/{{organization}}/project_name?label=Issues%20Closed" alt="Closed Issues">
+  <a href="https://github.com/markurtz/project_name/issues?q=is%3Aissue+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-closed/markurtz/project_name?label=Issues%20Closed" alt="Closed Issues">
   </a>
   <!-- Uncomment to display open issues:
-  <a href="https://github.com/{{organization}}/project_name/issues?q=is%3Aissue+is%3Aopen">
-    <img src="https://img.shields.io/github/issues/{{organization}}/project_name?label=Issues%20Open" alt="Open Issues">
+  <a href="https://github.com/markurtz/project_name/issues?q=is%3Aissue+is%3Aopen">
+    <img src="https://img.shields.io/github/issues/markurtz/project_name?label=Issues%20Open" alt="Open Issues">
   </a>
   -->
   <a href="https://opensource.org/licenses/Apache-2.0">
@@ -70,10 +70,10 @@ For comprehensive context and full documentation, please see [llms-full.txt](llm
 </p>
 
 <p align="center">
-  <a href="https://{{organization}}.github.io/project_name">Documentation</a> |
-  <a href="https://github.com/{{organization}}/project_name/milestones">Roadmap</a> |
-  <a href="https://github.com/{{organization}}/project_name/issues">Issues</a> |
-  <a href="https://github.com/{{organization}}/project_name/discussions">Discussions</a>
+  <a href="https://markurtz.github.io/project_name">Documentation</a> |
+  <a href="https://github.com/markurtz/project_name/milestones">Roadmap</a> |
+  <a href="https://github.com/markurtz/project_name/issues">Issues</a> |
+  <a href="https://github.com/markurtz/project_name/discussions">Discussions</a>
 </p>
 
 ______________________________________________________________________
@@ -90,7 +90,7 @@ ______________________________________________________________________
 
 Welcome to the project_name template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, simply find and replace all instances of `project_name` and `{{organization}}` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
+To use this template, simply find and replace all instances of `project_name` and `markurtz` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
 
 ### Why Use project_name?
 
@@ -172,12 +172,12 @@ If you use this template or the resulting software in your research, please cite
 
 ```bibtex
 @software{project_name,
-  author = {{{organization}}},
+  author = {markurtz},
   title = {project_name},
   version = {{{version}}},
   month = {{{month}}},
   year = {2026},
-  url = {https://github.com/{{organization}}/project_name}
+  url = {https://github.com/markurtz/project_name}
 }
 ```
 
@@ -240,7 +240,7 @@ If you use this template or the resulting software in your research, please cite
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `{{organization}}`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `markurtz`).
 
 ## Agent Notes
 
@@ -273,7 +273,7 @@ Ensure your system meets the following requirements before getting started:
 > Once implemented, you can spin up the development environment with:
 >
 > ```bash
-> git clone https://github.com/{{organization}}/project_name.git
+> git clone https://github.com/markurtz/project_name.git
 > cd project_name
 >
 > # Build and start the development environment in the background

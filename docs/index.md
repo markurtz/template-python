@@ -10,15 +10,15 @@ hide:
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/branding/logo-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/branding/logo-light.svg">
-  <img alt="{{ project_name }} Logo" src="assets/branding/logo-light.svg" width="400">
+  <img alt="template-python Logo" src="assets/branding/logo-light.svg" width="400">
 </picture>
 
-# {{ project_name }}
+# template-python
 
 **{{ project_description }}**
 
 [Get Started](getting-started/index.md){ .md-button .md-button--primary }
-<a href="https://github.com/{{ org_name }}/{{ project_name }}" class="md-button">View on GitHub</a>
+<a href="https://github.com/markurtz/template-python" class="md-button">View on GitHub</a>
 
 </div>
 </div>
@@ -64,7 +64,7 @@ Step-by-step guides for common tasks, integrations, and configuration patterns.
 
 ______________________________________________________________________
 
-Runnable code examples that demonstrate real-world usage of {{ project_name }}.
+Runnable code examples that demonstrate real-world usage of template-python.
 
 [:octicons-arrow-right-24: See Examples](examples/index.md)
 
@@ -107,24 +107,15 @@ Our security policy, responsible disclosure process, and supported versions.
 
 ## Quick Install
 
-### Build Configuration
-
-{{ project_name }} is primarily used as a build plugin. The preferred pathway is to configure it in your `pyproject.toml`:
-
-```toml
-[build-system]
-requires = ["hatchling", "project_name"]
-build-backend = "hatchling.build"
-
-[tool.hatch.version]
-source = "project_name"
+```bash
+pip install project_name
 ```
 
-For advanced installation options, Setuptools alternatives, and step-by-step onboarding, see the [Installation Guide](getting-started/installation.md).
+For advanced installation options, and step-by-step onboarding, see the [Installation Guide](getting-started/installation.md).
 
 ## Links
 
-- :material-github: <a href="https://github.com/{{ org_name }}/{{ project_name }}">GitHub Repository</a>
-- :material-map-marker-path: <a href="https://github.com/{{ org_name }}/{{ project_name }}/milestones">Roadmap</a>
+- :material-github: <a href="https://github.com/markurtz/template-python">GitHub Repository</a>
+- :material-map-marker-path: <a href="https://github.com/markurtz/template-python/milestones">Roadmap</a>
 - :material-post-outline: <a href="{{ blog_url }}">Blog</a>
 - :material-slack: <a href="{{ slack_url }}">Slack Community</a>
