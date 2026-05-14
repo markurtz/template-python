@@ -243,6 +243,14 @@ class TestBootstrapConfig:
             Path("/workspace/repo/scripts/bootstrap.py"),
             ["scripts/bootstrap.py"],
         )
+        assert not config._matches_glob(
+            Path("/workspace/repo/.github/workflows/development.yml"),
+            [".github/ISSUE_TEMPLATE/*.yml"],
+        )
+        assert not config._matches_glob(
+            Path("/workspace/repo/docs/index.md"),
+            [".github/workflows/*.yml"],
+        )
 
 
 class TestMain:
