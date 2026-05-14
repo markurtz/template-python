@@ -92,11 +92,10 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-uv run scripts/bootstrap.py \
-  --project-name my-app \
-  --project-desc "My cool application" \
-  --organization my-org
+uv run scripts/bootstrap.py
 ```
+
+The script will interactively prompt you for your project details (organization, project name, descriptions, and feature toggles) and automatically configure the repository.
 
 For full setup instructions including GitHub settings, publishing, and docs, see the **[Repository Setup Guide](https://markurtz.github.io/template-python/guides/repository-setup/)**.
 

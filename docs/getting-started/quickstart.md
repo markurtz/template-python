@@ -1,64 +1,62 @@
-# Quick Start TODO: need to change quickstart doc to be for this specific template walkthrough rather than general purpose quickstart
+# Quick Start
 
-This guide gets you from a fresh installation to running your first command in under 5 minutes.
+This guide gets you from a fresh clone to a bootstrapped and running project in under 5 minutes.
 
-> [!NOTE]
-> Make sure you have completed [Installation](installation.md) before continuing. If you are the maintainer and just instantiated this repository from the template, please complete the [Repository Setup](../guides/repository-setup.md) first.
+## Step 1 — Instantiate the Template
 
-## Step 1 — Initialize Your Environment
+1. Navigate to the [template-python repository on GitHub](https://github.com/markurtz/template-python).
+1. Click the green **Use this template** button and select **Create a new repository**.
+1. Choose your repository name and visibility, then click **Create repository**.
+1. Clone your new repository to your local machine:
+   ```bash
+   git clone https://github.com/YOUR_ORG/YOUR_REPO.git
+   cd YOUR_REPO
+   ```
 
-If you haven't already, set up your project and install `template-python`:
+## Step 2 — Bootstrap the Project
+
+The template comes with an interactive script that automatically replaces all placeholders with your project's details.
+
+Run the bootstrap script using `uv`:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install template-python
+uv run scripts/bootstrap.py
 ```
 
-## Step 2 — Verify the Install
+Follow the interactive prompts to configure your project. Once complete, you can choose to finalize the process, which will delete the bootstrap script and its tests.
+
+## Step 3 — Sync the Environment
+
+Now that your project is renamed and configured, install all dependencies and set up your local development environment:
 
 ```bash
-template-python
+uv sync --all-groups --all-extras
 ```
 
-Expected output:
+## Step 4 — Run Tests and Quality Checks
 
-```console
-Hello from template_python v0.1.0!
-Settings: Settings(environment='development', project_root=PosixPath('...'))
+Ensure everything is configured correctly by running the pre-configured quality checks and tests:
+
+```bash
+# Run linting and type checking
+hatch run lint:check
+hatch run types:check
+
+# Run tests
+hatch run test:all
 ```
 
-## Step 3 — Run Your First Command
-
-```python
-from template_python import Settings, configure_logger, logger
-from template_python.logging import LoggingSettings
-
-# Initialize the global logger
-configure_logger(LoggingSettings(enabled=True, level="INFO"))
-
-# Load application settings
-settings = Settings(environment="production")
-
-# Log the current configuration
-logger.info("Application initialized with settings: {}", settings)
-```
-
-Expected output:
-
-```console
-2026-05-13 12:00:00 | INFO     | __main__:<module> - Application initialized with settings: Settings(environment='production', project_root=PosixPath('...'))
-```
+If all tests pass, your new project is successfully bootstrapped and ready for development!
 
 > [!TIP]
-> See the [Reference](../reference/index.md) for all available configuration options.
+> See the [Developer Guide](../community/developing.md) for more details on local development commands.
 
-## Step 4 — Explore Further
+## Step 5 — Explore Further
 
-Now that your first command works, explore what `template-python` can do:
+Now that your project is ready, explore what `template-python` provides:
 
-- **[Guides](../guides/index.md)** — Task-specific deep dives including CI/CD and repository setup
-- **[Reference](../reference/index.md)** — Full API and CLI documentation
-- **[Examples](../examples/index.md)** — Runnable code examples
+- **[Repository Setup](../guides/repository-setup.md)** — Complete your GitHub configuration (Actions, Discussions, PyPI publishing).
+- **[Guides](../guides/index.md)** — Task-specific deep dives including CI/CD workflows.
+- **[Reference](../reference/index.md)** — Full configuration reference.
 
-**Next:** [Guides →](../guides/index.md)
+**Next:** [Repository Setup →](../guides/repository-setup.md)

@@ -352,10 +352,13 @@ class BootstrapConfig(BaseModel):
             ):
                 script_path = repo_root / "scripts" / "bootstrap.py"
                 test_path = repo_root / "tests" / "e2e" / "test_bootstrap.py"
+                unit_test_path = repo_root / "tests" / "unit" / "test_bootstrap.py"
                 if script_path.exists():
                     script_path.unlink()
                 if test_path.exists():
                     test_path.unlink()
+                if unit_test_path.exists():
+                    unit_test_path.unlink()
                 click.echo("Bootstrap scripts deleted.")
 
     @classmethod
