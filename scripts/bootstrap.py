@@ -42,6 +42,34 @@ IS_INTERACTIVE: Annotated[
     and not os.environ.get("CI")
 )
 
+DEFAULT_GLOBAL_BLACKLIST: Annotated[
+    tuple[str, ...],
+    "Default glob patterns to universally ignore during template replacement.",
+] = (
+    ".git/**",
+    ".venv/**",
+    ".tox/**",
+    "__pycache__/**",
+    "node_modules/**",
+    "site/**",
+    "build/**",
+    "dist/**",
+    ".pytest_cache/**",
+    ".mypy_cache/**",
+    ".ruff_cache/**",
+    "scripts/bootstrap.py",
+    "*.pyc",
+    "*.png",
+    "*.svg",
+    "*.jpg",
+    "*.jpeg",
+    "*.ico",
+    "*.woff",
+    "*.woff2",
+    "*.ttf",
+    "*.eot",
+)
+
 
 class ReplacementRule(BaseModel):
     """
@@ -297,9 +325,10 @@ class BootstrapConfig(BaseModel):
             "slack_url": slack_url,
             "blog_url": blog_url,
             "release_date": release_date,
+            "global_blacklist": (
+                kwargs.get("global_blacklist") or list(DEFAULT_GLOBAL_BLACKLIST)
+            ),
         }
-        if "global_blacklist" in kwargs and kwargs["global_blacklist"] is not None:
-            init_kwargs["global_blacklist"] = kwargs["global_blacklist"]
 
         return cls(**init_kwargs)
 
@@ -604,30 +633,7 @@ class BootstrapConfig(BaseModel):
 @click.option(
     "--global-blacklist",
     multiple=True,
-    default=(
-        ".git/**",
-        ".venv/**",
-        ".tox/**",
-        "__pycache__/**",
-        "node_modules/**",
-        "site/**",
-        "build/**",
-        "dist/**",
-        ".pytest_cache/**",
-        ".mypy_cache/**",
-        ".ruff_cache/**",
-        "scripts/bootstrap.py",
-        "*.pyc",
-        "*.png",
-        "*.svg",
-        "*.jpg",
-        "*.jpeg",
-        "*.ico",
-        "*.woff",
-        "*.woff2",
-        "*.ttf",
-        "*.eot",
-    ),
+    default=DEFAULT_GLOBAL_BLACKLIST,
     help=(
         "A list of glob patterns to universally ignore during template "
         "variable replacement."

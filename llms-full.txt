@@ -90,7 +90,7 @@ ______________________________________________________________________
 
 Welcome to the template-python template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, simply find and replace all instances of `template-python` and `markurtz` with your actual project details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
+To use this template, run `uv run scripts/bootstrap.py` to automatically configure your project with your organization and repository details, update the placeholder SVG images in `docs/assets/branding/`, and you are ready to start coding.
 
 ### Why Use template-python?
 

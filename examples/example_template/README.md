@@ -26,6 +26,6 @@ python examples/example_template/main.py
 This template highlights the following essential components that should be included in most project examples:
 
 - **Standard Structure:** A contained directory with its own `README.md`, `requirements.txt`, and executable python script (`main.py`).
-- **Configuration (Settings):** How to initialize the `Settings` model using `template-python.settings.Settings`.
-- **Telemetry (Logging):** How to properly configure application logging using `template-python.logging.LoggingSettings` and `configure_logger` to emit structured logs.
+- **Configuration (Settings):** How to initialize the `Settings` model using `template_python.settings.Settings`.
+- **Telemetry (Logging):** How to properly configure application logging using `template_python.logging.LoggingSettings` and `configure_logger` to emit structured logs.
 - **Best Practices:** Demonstration of clear code organization, descriptive docstrings, and safe execution patterns (`if __name__ == "__main__":`).
