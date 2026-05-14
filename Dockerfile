@@ -68,4 +68,4 @@ USER appuser
 EXPOSE 8080
 
 # Define the command to run the application
-CMD ["python", "-m", "template-python"]
+CMD ["python", "-m", "template_python"]
