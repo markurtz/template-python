@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/pypi/pyversions/template-python?label=Python" alt="Supported Python Versions">
   </a> -->
 
-  <br/>
+<br/>
   <!-- CI/CD & Build Status -->
   <a href="https://github.com/markurtz/template-python/actions/workflows/main.yml">
     <img src="https://github.com/markurtz/template-python/actions/workflows/main.yml/badge.svg" alt="CI Status">

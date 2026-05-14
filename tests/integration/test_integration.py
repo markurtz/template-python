@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 from collections.abc import Generator
 from io import StringIO
 
@@ -45,10 +46,12 @@ class TestMain:
             original_configure(settings)
 
         monkeypatch.setattr("template_python.__main__.configure_logger", mock_configure)
+        monkeypatch.setattr(sys, "argv", ["template_python"])
 
-        result = main()
+        with pytest.raises(SystemExit) as exc_info:
+            main()
 
-        assert result == 0
+        assert exc_info.value.code == 0
         output = capture_sink.getvalue()
         assert __version__ in output
         assert "Settings:" in output

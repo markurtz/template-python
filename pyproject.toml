@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "template-python"
 dynamic = ["version"]
-description = "An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern Python projects."
+description = "An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern software projects."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }

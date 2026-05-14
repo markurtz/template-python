@@ -1,4 +1,4 @@
-# Quick Start  TODO: need to change quickstart doc to be for this specific template walkthrough rather than general purpose quickstart
+# Quick Start TODO: need to change quickstart doc to be for this specific template walkthrough rather than general purpose quickstart
 
 This guide gets you from a fresh installation to running your first command in under 5 minutes.
 

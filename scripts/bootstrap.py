@@ -182,27 +182,38 @@ class BootstrapConfig(BaseModel):
             click.echo("--- Template Initialization ---")
             click.echo("Please confirm or provide the following values.")
 
-        organization = cls._prompt_if_none(
-            kwargs.get("organization"), "Organization", default_org
+        organization = (
+            cls._prompt_if_none(kwargs.get("organization"), "Organization", default_org)
+            or default_org
         )
-        repository = cls._prompt_if_none(
-            kwargs.get("repository"), "Repository", default_repo
+        repository = (
+            cls._prompt_if_none(kwargs.get("repository"), "Repository", default_repo)
+            or default_repo
         )
 
         default_project_name = (
             repository.replace("-", "_") if repository else "template_python"
         )
-        project_name = cls._prompt_if_none(
-            kwargs.get("project_name"), "Project Name", default_project_name
+        project_name = (
+            cls._prompt_if_none(
+                kwargs.get("project_name"), "Project Name", default_project_name
+            )
+            or default_project_name
         )
 
         default_env_prefix = project_name.upper() if project_name else "TEMPLATE_PYTHON"
-        env_prefix = cls._prompt_if_none(
-            kwargs.get("env_prefix"), "Environment Prefix", default_env_prefix
+        env_prefix = (
+            cls._prompt_if_none(
+                kwargs.get("env_prefix"), "Environment Prefix", default_env_prefix
+            )
+            or default_env_prefix
         )
 
-        project_desc = cls._prompt_if_none(
-            kwargs.get("project_desc"), "Project Description", default_desc
+        project_desc = (
+            cls._prompt_if_none(
+                kwargs.get("project_desc"), "Project Description", default_desc
+            )
+            or default_desc
         )
 
         if not default_maintainer or default_maintainer == default_org:
@@ -210,8 +221,11 @@ class BootstrapConfig(BaseModel):
 
         default_email = ""
 
-        maintainer = cls._prompt_if_none(
-            kwargs.get("maintainer"), "Maintainer", default_maintainer
+        maintainer = (
+            cls._prompt_if_none(
+                kwargs.get("maintainer"), "Maintainer", default_maintainer
+            )
+            or default_maintainer
         )
 
         support_email = cls._prompt_if_none(
@@ -224,8 +238,11 @@ class BootstrapConfig(BaseModel):
         blog_url = cls._prompt_if_none(
             kwargs.get("blog_url"), "Blog URL (leave blank to omit)", ""
         )
-        release_date = cls._prompt_if_none(
-            kwargs.get("release_date"), "Release Date", default_date
+        release_date = (
+            cls._prompt_if_none(
+                kwargs.get("release_date"), "Release Date", default_date
+            )
+            or default_date
         )
 
         disable_github_discussions = cls._prompt_if_none(
@@ -444,7 +461,7 @@ class BootstrapConfig(BaseModel):
 
             if isinstance(rule.search, Pattern):
                 content = rule.search.sub(rule.replace, content)
-            elif rule.replace and rule.search != rule.replace:
+            elif rule.replace is not None and rule.search != rule.replace:
                 content = content.replace(rule.search, rule.replace)
 
         if content != original_content:
@@ -844,14 +861,21 @@ def main(**kwargs: Any) -> None:  # noqa: C901
 
     rules.extend(
         [
+            ReplacementRule(
+                search="{{maintainer_username}}", replace=config.maintainer
+            ),
+            ReplacementRule(
+                search="author = {markurtz}",
+                replace=f"author = {{{config.maintainer}}}",
+            ),
             ReplacementRule(search="template-python", replace=config.repository),
             ReplacementRule(search="template_python", replace=config.project_name),
             ReplacementRule(search="TEMPLATE_PYTHON", replace=config.env_prefix),
             ReplacementRule(search="markurtz", replace=config.organization),
             ReplacementRule(
-                search=(
-                    "An opinionated, production-ready Apache 2.0 template repository "
-                    "for bootstrapping modern software projects."
+                search=re.compile(
+                    r"An opinionated, production-ready Apache 2\.0 template "
+                    r"repository[\s\S]{0,50}modern software projects\."
                 ),
                 replace=config.project_desc,
             ),

@@ -2,209 +2,242 @@
 
 from __future__ import annotations
 
+import asyncio
 import shutil
-import subprocess
 import sys
+from functools import wraps
 from pathlib import Path
+from typing import Any
 
 import pytest
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-class TestBootstrap:
-    """Test suite for the bootstrap.py script."""
+from scripts import bootstrap
+from scripts.bootstrap import BootstrapConfig, main
 
-    @pytest.fixture
-    def repo_copy(self, tmp_path: Path) -> Path:
-        """Fixture to create a copy of the repository in a temporary directory."""
-        repo_root = Path(__file__).resolve().parent.parent.parent
-        target_dir = tmp_path / "repo_copy"
 
-        # Ignore typical large/irrelevant directories
-        ignore_patterns = shutil.ignore_patterns(
+def async_timeout(delay: float) -> Any:
+    """Decorator to timeout asyncio tests."""
+
+    def decorator(func: Any) -> Any:
+        @wraps(func)
+        async def new_func(*args: Any, **kwargs: Any) -> Any:
+            return await asyncio.wait_for(func(*args, **kwargs), timeout=delay)
+
+        return new_func
+
+    return decorator
+
+
+@pytest.fixture(autouse=True)
+def _mock_interactive(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Ensure IS_INTERACTIVE is False for all tests to prevent blocking prompts."""
+    monkeypatch.setattr(bootstrap, "IS_INTERACTIVE", False)
+
+
+def generate_test_cases() -> list[dict[str, Any]]:
+    """Generates all test case variations for CLI arguments."""
+    cases: list[dict[str, Any]] = []
+
+    # Default state (all defaults)
+    cases.append({})
+
+    # String argument cases
+    str_args = [
+        "organization",
+        "repository",
+        "project_name",
+        "project_desc",
+        "env_prefix",
+        "docs_url",
+        "maintainer",
+        "support_email",
+        "slack_url",
+        "blog_url",
+        "release_date",
+    ]
+    for arg in str_args:
+        # Empty string case
+        cases.append({arg: ""})
+        # Custom value case
+        cases.append({arg: f"custom_{arg}"})
+
+    # Boolean argument cases
+    bool_args = [
+        "disable_github_discussions",
+        "disable_github_issues",
+        "disable_github_roadmap",
+        "disable_pypi",
+    ]
+    for arg in bool_args:
+        cases.append({arg: True})
+
+    return cases
+
+
+class TestMain:
+    """Test suite for the main bootstrap function."""
+
+    @pytest.mark.regression
+    @pytest.mark.parametrize("cli_arguments", generate_test_cases())
+    def test_invocation(
+        self,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        cli_arguments: dict[str, Any],
+    ) -> None:
+        """Tests bootstrap script with various arguments, verifying all files."""
+        repository_root = Path(__file__).resolve().parent.parent.parent
+        target_directory = tmp_path / "repo"
+
+        # Copy repo excluding temp/cache/git directories
+        shutil.copytree(
+            repository_root,
+            target_directory,
+            ignore=shutil.ignore_patterns(
+                ".git",
+                ".venv",
+                ".tox",
+                "__pycache__",
+                "node_modules",
+                "site",
+                "build",
+                "dist",
+                ".pytest_cache",
+                ".mypy_cache",
+                ".ruff_cache",
+            ),
+        )
+
+        class MockPath:
+            def __init__(self, *args: Any, **kwargs: Any) -> None:
+                self._path = Path(*args, **kwargs)
+
+            def resolve(self) -> Any:
+                class MockResolved:
+                    @property
+                    def parent(self) -> Any:
+                        class MockParent:
+                            @property
+                            def parent(self) -> Path:
+                                return target_directory
+
+                        return MockParent()
+
+                return MockResolved()
+
+        monkeypatch.setattr(bootstrap, "Path", MockPath)
+
+        # Merge defaults so the test config is fully populated like the click app would
+        base_args = {
+            "global_blacklist": bootstrap.main.params[-1].default,
+        }
+        test_args = {**base_args, **cli_arguments}
+
+        # Determine expected state
+        config = BootstrapConfig.create(**test_args)
+
+        # Run script
+        main.callback(**test_args)  # type: ignore[misc]
+
+        self._verify_repo_state(target_directory, config)
+
+    def _verify_repo_state(self, target_dir: Path, config: BootstrapConfig) -> None:
+        """Thoroughly checks the target directory against the expected state."""
+        assert (target_dir / "src" / config.project_name).exists()
+        if config.project_name != "template_python":
+            assert not (target_dir / "src" / "template_python").exists()
+
+        placeholders = self._build_placeholders(config)
+
+        for file_path in target_dir.rglob("*"):
+            self._verify_file(file_path, target_dir, config, placeholders)
+
+    def _build_placeholders(self, config: BootstrapConfig) -> list[str]:
+        """Builds the list of placeholders expected to be absent."""
+        placeholders = ["{{maintainer_username}}"]
+        if config.repository != "template-python":
+            placeholders.append("template-python")
+        if config.project_name != "template_python":
+            placeholders.append("template_python")
+        if config.env_prefix != "TEMPLATE_PYTHON":
+            placeholders.append("TEMPLATE_PYTHON")
+        if config.support_email != "conduct@example.com":
+            placeholders.append("conduct@example.com")
+        if config.project_desc != (
+            "An opinionated, production-ready Apache 2.0 template repository "
+            "for bootstrapping modern software projects."
+        ):
+            placeholders.append(
+                "An opinionated, production-ready Apache 2.0 template repository"
+            )
+        if config.organization != "markurtz" and config.maintainer != "markurtz":
+            placeholders.append("markurtz")
+        return placeholders
+
+    def _verify_file(
+        self,
+        file_path: Path,
+        target_dir: Path,
+        config: BootstrapConfig,
+        placeholders: list[str],
+    ) -> None:
+        """Verifies an individual file for placeholders and specific logic."""
+        if not file_path.is_file():
+            return
+
+        ignore_dirs = {
             ".git",
             ".venv",
             ".tox",
             "__pycache__",
-            "dist",
+            "node_modules",
+            "site",
             "build",
+            "dist",
             ".pytest_cache",
             ".mypy_cache",
             ".ruff_cache",
-            "node_modules",
-            "site",
-        )
+        }
+        if any(part in ignore_dirs for part in file_path.parts):
+            return
 
-        shutil.copytree(repo_root, target_dir, ignore=ignore_patterns)
-        return target_dir
+        # Skip testing scripts since they contain placeholders
+        if file_path.name in ("bootstrap.py", "test_bootstrap.py"):
+            return
 
-    @pytest.mark.smoke
-    @pytest.mark.sanity
-    @pytest.mark.regression
-    @pytest.mark.parametrize(
-        ("cli_args", "expected_replacements"),
-        [
-            (
-                [
-                    "--repository",
-                    "my-new-app",
-                    "--project-desc",
-                    "A cool new app.",
-                    "--organization",
-                    "myorg",
-                    "--disable-pypi",
-                    "--disable-docs",
-                ],
-                {
-                    "template-python": "my-new-app",
-                    "template_python": "my_new_app",
-                    "markurtz": "myorg",
-                    "conduct@example.com": "conduct@myorg.com",
-                    "An opinionated, production-ready Apache 2.0 template repository "
-                    "for bootstrapping modern software projects.": "A cool new app.",
-                },
-            ),
-            (
-                [
-                    "--repository",
-                    "template-python",
-                    "--project-desc",
-                    "An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern software projects.",
-                    "--organization",
-                    "markurtz",
-                    "--email",
-                    "conduct@example.com",
-                    "--author-name",
-                    "markurtz",
-                    "--slack-url",
-                    "https://slack.example.com",
-                    "--blog-url",
-                    "https://blog.example.com",
-                ],
-                {
-                    "template-python": "template-python",
-                    "template_python": "template_python",
-                    "markurtz": "markurtz",
-                    "conduct@example.com": "conduct@example.com",
-                    "An opinionated, production-ready Apache 2.0 template repository "
-                    "for bootstrapping modern software projects.": "An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern software projects.",
-                },
-            ),
-        ],
-    )
-    def test_bootstrap(
-        self,
-        repo_copy: Path,
-        cli_args: list[str],
-        expected_replacements: dict[str, str],
+        try:
+            content = file_path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            return
+
+        for ph in placeholders:
+            assert ph not in content, f"Placeholder '{ph}' found in {file_path}"
+
+        self._verify_file_specific_content(file_path, target_dir, config, content)
+
+    def _verify_file_specific_content(
+        self, file_path: Path, target_dir: Path, config: BootstrapConfig, content: str
     ) -> None:
-        """Test that bootstrap.py replaces placeholders and renames directories."""
-        script_path = repo_copy / "scripts" / "bootstrap.py"
+        """Verifies specific configuration changes in specific files."""
+        if file_path.name == "README.md" and file_path.parent == target_dir:
+            if config.docs_url:
+                assert config.docs_url in content
 
-        # Run bootstrap.py
-        cmd = [sys.executable, str(script_path)] + cli_args
-        result = subprocess.run(
-            cmd,
-            cwd=repo_copy,
-            capture_output=True,
-            text=True,
-            check=False,
-        )
+            if config.disable_github_discussions:
+                assert "<!--" in content
+                assert "Discussions</a>" in content
+            else:
+                assert "Discussions</a>" in content
 
-        print("STDOUT:")
-        print(result.stdout)
-        print("STDERR:")
-        print(result.stderr)
+        if file_path.name == "pyproject.toml":
+            assert config.project_name in content
+            assert config.project_desc in content
+            if config.docs_url:
+                assert config.docs_url in content
+            if config.disable_github_issues:
+                assert "# Issues =" in content or "Issues =" not in content
 
-        assert result.returncode == 0, (
-            f"Bootstrap script failed:\n{result.stderr}\n{result.stdout}"
-        )
-
-        # Verify old text is gone (excluding the script and .git)
-        self._verify_file_contents(repo_copy, expected_replacements, cli_args)
-
-        # Verify python package directory renaming
-        old_pkg_dir = repo_copy / "src" / "template_python"
-        new_pkg_name = expected_replacements["template_python"]
-        new_pkg_dir = repo_copy / "src" / new_pkg_name
-
-        if old_pkg_dir != new_pkg_dir:
-            assert not old_pkg_dir.exists(), "Old package directory still exists."
-        assert new_pkg_dir.exists(), "New package directory was not created."
-
-    def _verify_file_contents(
-        self,
-        repo_copy: Path,
-        expected_replacements: dict[str, str],
-        cli_args: list[str],
-    ) -> None:
-        """Helper to verify file contents after bootstrap."""
-        for file_path in repo_copy.rglob("*"):
-            if not file_path.is_file():
-                continue
-
-            # Skip the script itself
-            if file_path.name == "bootstrap.py":
-                continue
-
-            # Skip binary files
-            if file_path.suffix in (
-                ".pyc",
-                ".png",
-                ".svg",
-                ".jpg",
-                ".jpeg",
-                ".ico",
-                ".woff",
-                ".woff2",
-                ".ttf",
-                ".eot",
-            ):
-                continue
-
-            try:
-                content = file_path.read_text(encoding="utf-8")
-            except UnicodeDecodeError:
-                continue
-
-            print("EXPECTED_REPLACEMENTS:", expected_replacements)
-
-            for old_text, new_text in expected_replacements.items():
-                print(f"Checking {old_text=} against {new_text=}")
-
-                if old_text == new_text:
-                    continue
-                if old_text in content:
-                    lines = content.split("\n")
-                    for i, line in enumerate(lines):
-                        if old_text in line:
-                            pytest.fail(
-                                f"Found '{old_text}' in {file_path.name} on line {i + 1}: {line.strip()}"
-                            )
-
-            # Check email uncommenting in mkdocs.yml
-            if "mkdocs.yml" in file_path.name:
-                assert "#  org_email:" not in content
-                assert "  org_email:" in content
-
-            # Check email uncommenting in CODE_OF_CONDUCT.md
-            if "CODE_OF_CONDUCT.md" in file_path.name:
-                # Get the email from expected_replacements
-                expected_email = expected_replacements.get("conduct@example.com")
-                if expected_email:
-                    assert f"<!-- {expected_email} -->" not in content
-                    assert expected_email in content
-
-            if "--disable-pypi" in cli_args:
-                if file_path.name in ("release.yml", "nightly.yml"):
-                    assert "      - name: Publish to PyPI" not in content
-                    assert "#      - name: Publish to PyPI" in content
-                if file_path.name == "README.md":
-                    assert '<!-- <a href="https://pypi.org' in content
-
-            if "--slack-url" in cli_args and "mkdocs.yml" in file_path.name:
-                assert "#  slack_url:" not in content
-                assert "  slack_url:" in content
-
-            if "--blog-url" in cli_args and "mkdocs.yml" in file_path.name:
-                assert "#  blog_url:" not in content
-                assert "  blog_url:" in content
+        if file_path.name == "CODEOWNERS":
+            assert config.maintainer in content

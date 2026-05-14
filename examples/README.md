@@ -16,9 +16,9 @@ Before running the examples, ensure you have set up your environment correctly:
 
 Below is a curated list of available examples, categorized by complexity:
 
-| Example                                      | Complexity  | Description                                                                                    |
-| :------------------------------------------- | :---------- | :--------------------------------------------------------------------------------------------- |
-| **`[example_template/](example_template/)`** | Beginner | A generic template demonstrating standard structure, configuration, and telemetry integration. |
+| Example                                      | Complexity | Description                                                                                    |
+| :------------------------------------------- | :--------- | :--------------------------------------------------------------------------------------------- |
+| **`[example_template/](example_template/)`** | Beginner   | A generic template demonstrating standard structure, configuration, and telemetry integration. |
 
 <!-- Add new examples to the table above as they are created. -->
 
