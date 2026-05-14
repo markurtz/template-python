@@ -193,7 +193,7 @@ ignore_missing_imports = true
 [tool.ruff]
 line-length = 88
 indent-width = 4
-exclude = ["build", "dist", "env", ".venv", "src/template-python/version.py"]
+exclude = ["build", "dist", "env", ".venv", "src/template_python/version.py"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -290,7 +290,7 @@ select = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["template-python", "tests"]
+known-first-party = ["template_python", "tests"]
 
 [tool.pytest.ini_options]
 addopts = "-s -vvv --cache-clear"
