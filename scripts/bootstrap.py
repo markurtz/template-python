@@ -19,12 +19,11 @@ Example:
 from __future__ import annotations
 
 import datetime
-import fnmatch
 import os
 import re
 import subprocess
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from re import Pattern
 from typing import Annotated, Any
 
@@ -416,11 +415,9 @@ class BootstrapConfig(BaseModel):
             return default_value
 
     def _matches_glob(self, path: Path, patterns: list[str]) -> bool:
-        posix_path = path.as_posix()
+        path_matcher = PurePosixPath(path.as_posix())
         for pattern in patterns:
-            if fnmatch.fnmatch(posix_path, pattern) or fnmatch.fnmatch(
-                path.name, pattern
-            ):
+            if path_matcher.match(pattern):
                 return True
             if pattern.endswith("/**"):
                 directory_pattern = pattern[:-3]

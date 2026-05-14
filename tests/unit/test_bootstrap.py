@@ -209,6 +209,41 @@ class TestBootstrapConfig:
         config = BootstrapConfig(**valid_instances[0])
         assert config.release_year == "2023"
 
+    @pytest.mark.regression
+    def test_matches_glob_with_directory_qualified_patterns(self) -> None:
+        """Ensures directory-qualified glob patterns match repository file paths."""
+        config = BootstrapConfig.create(
+            organization="test-org",
+            repository="test-repo",
+            project_name="test_repo",
+            project_desc="desc",
+            env_prefix="TEST_REPO",
+            disable_github_discussions=False,
+            disable_github_issues=False,
+            disable_github_roadmap=False,
+            disable_pypi=False,
+            docs_url="https://example.com/docs/",
+            maintainer="maintainer",
+            support_email="maintainer@example.com",
+            slack_url="",
+            blog_url="",
+            release_date="2023-01-01",
+            global_blacklist=[],
+        )
+
+        assert config._matches_glob(
+            Path("/workspace/repo/.github/workflows/development.yml"),
+            [".github/workflows/*.yml"],
+        )
+        assert config._matches_glob(
+            Path("/workspace/repo/.github/ISSUE_TEMPLATE/bug_report.yml"),
+            [".github/ISSUE_TEMPLATE/*.yml"],
+        )
+        assert config._matches_glob(
+            Path("/workspace/repo/scripts/bootstrap.py"),
+            ["scripts/bootstrap.py"],
+        )
+
 
 class TestMain:
     """Test suite for the main bootstrap function."""
