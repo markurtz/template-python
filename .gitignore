@@ -161,7 +161,7 @@ nosetests.xml
 # ==============================================================================
 
 # Python
-src/project_name/version.py
+src/template_python/version.py
 __pycache__/
 *.py[cod]
 *$py.class

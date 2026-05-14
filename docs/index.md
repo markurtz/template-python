@@ -15,7 +15,7 @@ hide:
 
 # template-python
 
-**{{ project_description }}**
+**An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern software projects.**
 
 [Get Started](getting-started/index.md){ .md-button .md-button--primary }
 <a href="https://github.com/markurtz/template-python" class="md-button">View on GitHub</a>
@@ -108,7 +108,7 @@ Our security policy, responsible disclosure process, and supported versions.
 ## Quick Install
 
 ```bash
-pip install project_name
+pip install template-python
 ```
 
 For advanced installation options, and step-by-step onboarding, see the [Installation Guide](getting-started/installation.md).
@@ -117,5 +117,7 @@ For advanced installation options, and step-by-step onboarding, see the [Install
 
 - :material-github: <a href="https://github.com/markurtz/template-python">GitHub Repository</a>
 - :material-map-marker-path: <a href="https://github.com/markurtz/template-python/milestones">Roadmap</a>
-- :material-post-outline: <a href="{{ blog_url }}">Blog</a>
-- :material-slack: <a href="{{ slack_url }}">Slack Community</a>
+
+<!-- - :material-post-outline: <a href="{{ blog_url }}">Blog</a> -->
+
+<!-- - :material-slack: <a href="{{ slack_url }}">Slack Community</a> -->

@@ -3,14 +3,23 @@ requires = ["hatchling", "gitversioned[hatchling]"]
 build-backend = "hatchling.build"
 
 [project]
-name = "project_name"
+name = "template-python"
 dynamic = ["version"]
-description = "{{project_description}}"
+description = "An opinionated, production-ready Apache 2.0 template repository for bootstrapping modern Python projects."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
-authors = [{ name = "{{organization}}" }]
+authors = [{ name = "markurtz" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
 dependencies = [
+    "click>=8.0.0",
     "loguru>=0.7.0",
     "pydantic>=2.0.0",
     "pydantic-settings>=2.0.0",
@@ -49,6 +58,8 @@ docs = [
     "mike~=2.2",
     "mkdocs~=1.6",
     "mkdocstrings[python]~=1.0",
+    "mkdocs-gen-files~=0.5",
+    "mkdocs-literate-nav~=0.6",
     "mkdocs-macros-plugin~=1.5",
     "mkdocs-material~=9.7",
     "mkdocs-minify-plugin~=0.8",
@@ -58,12 +69,13 @@ docs = [
 ]
 
 [project.scripts]
-project_name = "project_name.__main__:main"
+template-python = "template_python.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/{{org_name}}/{{project_name}}"
-Repository = "https://github.com/{{org_name}}/{{project_name}}.git"
-Issues = "https://github.com/{{org_name}}/{{project_name}}/issues"
+Homepage = "https://github.com/markurtz/template-python"
+Repository = "https://github.com/markurtz/template-python.git"
+Issues = "https://github.com/markurtz/template-python/issues"
+Documentation = "https://markurtz.github.io/template-python/"
 
 [tool.hatch.version]
 source = "gitversioned"
@@ -163,12 +175,12 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/project_name"]
+packages = ["src/template_python"]
 
 
 # --- Tool Configurations ---
 [tool.mypy]
-files = ["src/project_name", "tests"]
+files = ["src/template-python", "tests"]
 python_version = "3.10"
 warn_redundant_casts = true
 warn_unused_ignores = false
@@ -181,7 +193,7 @@ ignore_missing_imports = true
 [tool.ruff]
 line-length = 88
 indent-width = 4
-exclude = ["build", "dist", "env", ".venv", "src/project_name/version.py"]
+exclude = ["build", "dist", "env", ".venv", "src/template-python/version.py"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -278,7 +290,7 @@ select = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["project_name", "tests"]
+known-first-party = ["template-python", "tests"]
 
 [tool.pytest.ini_options]
 addopts = "-s -vvv --cache-clear"
@@ -286,10 +298,7 @@ asyncio_mode = "auto"
 markers = [
     "smoke: quick tests to check basic functionality",
     "sanity: detailed tests to ensure major functions work correctly",
-    "regression: tests to ensure that new changes do not break existing functionality",
-    "e2e: end-to-end integration tests",
-    "unit: unit tests",
-    "integration: integration tests"
+    "regression: tests to ensure that new changes do not break existing functionality"
 ]
 testpaths = ["tests"]
 

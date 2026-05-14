@@ -2,10 +2,10 @@
 Compatibility abstractions for optional dependencies.
 
 This module centralizes fallback logic for safely importing optional dependencies
-like ``psutil``, ``opentelemetry``, and TOML parsers. It provides standardized
-access points for these modules, avoiding scattered ``try-except`` blocks across
-the codebase. Maintainers should import optional dependencies from this module
-rather than attempting direct imports elsewhere.
+like ``opentelemetry``. It provides standardized access points for these modules,
+avoiding scattered ``try-except`` blocks across the codebase. Maintainers should
+import optional dependencies from this module rather than attempting direct
+imports elsewhere.
 """
 
 from __future__ import annotations

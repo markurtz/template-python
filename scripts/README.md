@@ -1,6 +1,6 @@
-# `project_name` - Utility Scripts
+# `template-python` - Utility Scripts  # TODO: update docs thouroughly based on the boostrap.py script (the only one now) and all of the contained options / workflows
 
-This directory contains utility scripts designed to assist with local development, maintenance, and automation tasks for `project_name`.
+This directory contains utility scripts designed to assist with local development, maintenance, and automation tasks for `template-python`.
 
 > [!NOTE]
 > These scripts are intended for developer and CI/CD use only and are **not** distributed as part of the final application package.

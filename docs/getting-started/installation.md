@@ -1,6 +1,6 @@
 # Installation
 
-This page covers all supported installation methods for `project_name`.
+This page covers all supported installation methods for `template-python`.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ If you need to install the package directly into an environment (e.g., for local
 
 ````
 ```bash
-pip install project_name
+pip install template_python
 ```
 ````
 
@@ -29,7 +29,7 @@ pip install project_name
 
 ````
 ```bash
-uv pip install project_name
+uv pip install template_python
 ```
 ````
 
@@ -38,7 +38,7 @@ uv pip install project_name
 After installation, you can confirm it is available in your Python environment by running:
 
 ```bash
-python -c "import project_name; print(project_name.__version__)"
+python -c "import template_python; print(template_python.__version__)"
 ```
 
 You should see output similar to:
@@ -74,7 +74,7 @@ A pre-built Docker image is available for containerized environments:
 docker pull ghcr.io/markurtz/template-python:latest
 
 # Run a one-off command
-docker run --rm ghcr.io/markurtz/template-python:latest python -c "import project_name; print(project_name.__version__)"
+docker run --rm ghcr.io/markurtz/template-python:latest python -c "import template_python; print(template-python.__version__)"
 ```
 
 For a persistent, volume-mounted setup using Docker Compose, see the `docker-compose.yml` in the root of the repository.
@@ -107,7 +107,7 @@ To upgrade an existing installation to the latest release:
 
 ````
 ```bash
-pip install --upgrade project_name
+pip install --upgrade template-python
 ```
 ````
 
@@ -115,7 +115,7 @@ pip install --upgrade project_name
 
 ````
 ```bash
-uv pip install --upgrade project_name
+uv pip install --upgrade template-python
 ```
 ````
 
@@ -125,7 +125,7 @@ uv pip install --upgrade project_name
 
 ````
 ```bash
-pip uninstall project_name
+pip uninstall template-python
 ```
 ````
 
@@ -133,7 +133,7 @@ pip uninstall project_name
 
 ````
 ```bash
-uv pip uninstall project_name
+uv pip uninstall template-python
 ```
 ````
 

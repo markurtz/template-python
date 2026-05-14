@@ -1,5 +1,5 @@
 """
-Core initialization module for the package.
+Core initialization module for the template-python package.
 
 This module serves as the primary entry point for the library, exposing the public
 API components such as logging settings, application configuration, and version

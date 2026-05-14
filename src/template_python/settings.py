@@ -1,5 +1,5 @@
 """
-Settings configuration for the {{project_name}} application.
+Settings configuration for the template-python application.
 
 This module provides the primary configuration structure for the application
 using Pydantic Settings. It aggregates configuration from multiple sources,
@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     Example:
         .. code-block:: python
 
-            from project_name.settings import Settings
+            from template_python.settings import Settings
 
             settings = Settings(environment="production")
             print(settings.project_root)
@@ -43,7 +43,7 @@ class Settings(BaseSettings):
         extra="ignore",
         populate_by_name=True,
         validate_assignment=True,
-        env_prefix="PROJECT_NAME__",
+        env_prefix="TEMPLATE_PYTHON__",
     )
     """Pydantic config dict dictating environment prefixes and validation."""
 

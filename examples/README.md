@@ -1,6 +1,6 @@
-# project_name Examples
+# template-python Examples
 
-This directory contains practical, runnable demonstrations of how to use `project_name` in various scenarios. These examples are designed to help you quickly understand core concepts, advanced configurations, and best practices.
+This directory contains practical, runnable demonstrations of how to use `template-python` in various scenarios. These examples are designed to help you quickly understand core concepts, advanced configurations, and best practices.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Before running the examples, ensure you have set up your environment correctly:
 1. **Environment Variables:** Copy `.env.example` to `.env` if the examples require configuration (e.g., API keys or external services).
 
 > [!NOTE]
-> Some examples may require additional dependencies not included in the core `project_name` package. Please check the `README.md` within each specific example directory for details.
+> Some examples may require additional dependencies not included in the core `template-python` package. Please check the `README.md` within each specific example directory for details.
 
 ## Example Index
 
@@ -18,7 +18,7 @@ Below is a curated list of available examples, categorized by complexity:
 
 | Example                                      | Complexity  | Description                                                                                    |
 | :------------------------------------------- | :---------- | :--------------------------------------------------------------------------------------------- |
-| **`[example_template/](example_template/)`** | ⭐ Beginner | A generic template demonstrating standard structure, configuration, and telemetry integration. |
+| **`[example_template/](example_template/)`** | Beginner | A generic template demonstrating standard structure, configuration, and telemetry integration. |
 
 <!-- Add new examples to the table above as they are created. -->
 

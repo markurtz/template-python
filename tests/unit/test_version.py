@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from project_name import version
+from template_python import version
 
 
 class TestVersionMetadata:
@@ -39,14 +39,12 @@ class TestVersionMetadata:
         return version.VersionMetadata(**request.param)
 
     @pytest.mark.smoke
-    @pytest.mark.unit
     def test_signature(self) -> None:
         """Verify class signature."""
         assert issubclass(version.VersionMetadata, tuple)
         assert hasattr(version.VersionMetadata, "major")
 
     @pytest.mark.sanity
-    @pytest.mark.unit
     def test_initialization(self, valid_instances: version.VersionMetadata) -> None:
         """Test proper initialization."""
         assert isinstance(valid_instances.major, int)
@@ -75,14 +73,12 @@ class TestGitMetadata:
         return version.GitMetadata(**request.param)
 
     @pytest.mark.smoke
-    @pytest.mark.unit
     def test_signature(self) -> None:
         """Verify class signature."""
         assert issubclass(version.GitMetadata, tuple)
         assert hasattr(version.GitMetadata, "hash")
 
     @pytest.mark.sanity
-    @pytest.mark.unit
     def test_initialization(self, valid_instances: version.GitMetadata) -> None:
         """Test proper initialization."""
         assert isinstance(valid_instances.hash, str)
@@ -106,28 +102,24 @@ class TestBuildMetadata:
         return version.BuildMetadata(**request.param)
 
     @pytest.mark.smoke
-    @pytest.mark.unit
     def test_signature(self) -> None:
         """Verify class signature."""
         assert issubclass(version.BuildMetadata, tuple)
         assert hasattr(version.BuildMetadata, "timestamp")
 
     @pytest.mark.sanity
-    @pytest.mark.unit
     def test_initialization(self, valid_instances: version.BuildMetadata) -> None:
         """Test proper initialization."""
         assert isinstance(valid_instances.timestamp, str)
 
 
 @pytest.mark.smoke
-@pytest.mark.unit
 def test___version__() -> None:
     """Validate __version__ param/type."""
     assert isinstance(version.__version__, str)
 
 
 @pytest.mark.smoke
-@pytest.mark.unit
 def test_version() -> None:
     """Validate version param/type."""
     assert version.version == version.__version__
@@ -135,21 +127,18 @@ def test_version() -> None:
 
 
 @pytest.mark.sanity
-@pytest.mark.unit
 def test___version_metadata__() -> None:
     """Validate __VERSION_METADATA__ param/type."""
     assert isinstance(version.__VERSION_METADATA__, version.VersionMetadata)
 
 
 @pytest.mark.sanity
-@pytest.mark.unit
 def test___git_metadata__() -> None:
     """Validate __GIT_METADATA__ param/type."""
     assert isinstance(version.__GIT_METADATA__, version.GitMetadata)
 
 
 @pytest.mark.sanity
-@pytest.mark.unit
 def test___build_metadata__() -> None:
     """Validate __BUILD_METADATA__ param/type."""
     assert isinstance(version.__BUILD_METADATA__, version.BuildMetadata)

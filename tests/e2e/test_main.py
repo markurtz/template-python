@@ -15,23 +15,22 @@ class TestMain:
     @pytest.mark.smoke
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.e2e
     @pytest.mark.parametrize(
         ("env_vars", "expected_outputs", "unexpected_outputs"),
         [
             (
                 {},
-                ["Hello from {project_name}", "Settings:"],
+                ["Hello from template-python", "Settings:"],
                 [],
             ),
             (
                 {
-                    "PROJECT_NAME__ENVIRONMENT": "production",
-                    "PROJECT_NAME__LOGGING__FORMAT": "{level} - {message}",
-                    "PROJECT_NAME__LOGGING__OTEL_FORMATTING": "disable",
+                    "TEMPLATE_PYTHON__ENVIRONMENT": "production",
+                    "TEMPLATE_PYTHON__LOGGING__FORMAT": "{level} - {message}",
+                    "TEMPLATE_PYTHON__LOGGING__OTEL_FORMATTING": "disable",
                 },
                 [
-                    "INFO - Hello from {project_name}",
+                    "INFO - Hello from template-python",
                     "INFO - Settings: Settings(environment='production'",
                 ],
                 ["DEBUG"],
@@ -49,7 +48,7 @@ class TestMain:
         env.update(env_vars)
 
         exe_result = subprocess.run(
-            [sys.executable, "-m", "project_name"],
+            [sys.executable, "-m", "template_python"],
             capture_output=True,
             text=True,
             check=False,

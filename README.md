@@ -15,12 +15,14 @@
   <a href="https://github.com/markurtz/template-python/releases">
     <img src="https://img.shields.io/github/v/release/markurtz/template-python?label=Release" alt="GitHub Release">
   </a>
-  <a href="https://pypi.org/project/template-python/">
+<!--   <a href="https://pypi.org/project/template-python/">
     <img src="https://img.shields.io/pypi/v/template-python?label=PyPI" alt="PyPI Release">
-  </a>
-  <a href="https://pypi.org/project/template-python/">
+  </a> -->
+
+<!--   <a href="https://pypi.org/project/template-python/">
     <img src="https://img.shields.io/pypi/pyversions/template-python?label=Python" alt="Supported Python Versions">
-  </a>
+  </a> -->
+
   <br/>
   <!-- CI/CD & Build Status -->
   <a href="https://github.com/markurtz/template-python/actions/workflows/main.yml">
@@ -31,11 +33,9 @@
   <a href="https://github.com/markurtz/template-python/issues?q=is%3Aissue+is%3Aclosed">
     <img src="https://img.shields.io/github/issues-closed/markurtz/template-python?label=Issues%20Closed" alt="Closed Issues">
   </a>
-  <!-- Uncomment to display open issues:
   <a href="https://github.com/markurtz/template-python/issues?q=is%3Aissue+is%3Aopen">
     <img src="https://img.shields.io/github/issues/markurtz/template-python?label=Issues%20Open" alt="Open Issues">
   </a>
-  -->
   <a href="https://opensource.org/licenses/Apache-2.0">
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
   </a>
@@ -62,7 +62,7 @@ ______________________________________________________________________
 
 Welcome to the template-python template repository! This template provides a robust foundation for building high-quality, scalable software projects. It includes standard directories, issue templates, CI/CD workflows, and comprehensive placeholder documentation.
 
-To use this template, run the included `scripts/bootstrap.sh` script to automatically replace all placeholder variables with your project details. For full setup instructions including GitHub settings, publishing, and docs, see the **[Repository Setup Guide](https://markurtz.github.io/template-python/guides/repository-setup/)**.
+To use this template, run the included `scripts/bootstrap.py` script via `uv run` to automatically replace all placeholder variables with your project details. For full setup instructions including GitHub settings, publishing, and docs, see the **[Repository Setup Guide](https://markurtz.github.io/template-python/guides/repository-setup/)**.
 
 ### Why Use template-python?
 
@@ -79,7 +79,7 @@ When evaluating template-python against other templates, consider the following 
 | **Setup Speed**    | Very Fast                                                                                                  | Fast                 | Slower (requires CLI tool) |
 | **Visual Assets**  | Pre-configured Light/Dark assets                                                                           | None                 | Varies                     |
 | **CI/CD Built-in** | Yes (GitHub Actions)                                                                                       | No                   | Optional                   |
-| **Complexity**     | Low ([`scripts/bootstrap.sh`](https://github.com/markurtz/template-python/blob/main/scripts/bootstrap.sh)) | None                 | Medium (Jinja templates)   |
+| **Complexity**     | Low ([`scripts/bootstrap.py`](https://github.com/markurtz/template-python/blob/main/scripts/bootstrap.py)) | None                 | Medium (Jinja templates)   |
 
 ## What's New
 
@@ -92,11 +92,10 @@ This project has just been instantiated from the template repository. Keep an ey
 ## Quick Start
 
 ```bash
-./scripts/bootstrap.sh \
+uv run scripts/bootstrap.py \
   --project-name my-app \
   --project-desc "My cool application" \
-  --organization my-org \
-  --org-name my-org
+  --organization my-org
 ```
 
 For full setup instructions including GitHub settings, publishing, and docs, see the **[Repository Setup Guide](https://markurtz.github.io/template-python/guides/repository-setup/)**.

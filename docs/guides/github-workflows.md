@@ -1,6 +1,6 @@
 # Using CI/CD and GitHub workflows
 
-This guide explains the continuous integration and continuous deployment (CI/CD) pipelines used in `project_name`. It outlines the standard pathways, development cycles, and what standards must be met to contribute to the repository.
+This guide explains the continuous integration and continuous deployment (CI/CD) pipelines used in `template-python`. It outlines the standard pathways, development cycles, and what standards must be met to contribute to the repository.
 
 ## Understand the architecture
 

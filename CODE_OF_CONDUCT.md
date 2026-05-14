@@ -1,4 +1,4 @@
-# Code of Conduct for `project_name`
+# Code of Conduct for `template-python`
 
 ## Our Pledge
 
@@ -61,7 +61,7 @@ representative at an online or offline event.
 > [!IMPORTANT]
 > Instances of abusive, harassing, or otherwise unacceptable behavior may be
 > reported to the community leaders responsible for enforcement by contacting
-> **conduct@markurtz.com**.
+> <!-- conduct@example.com -->
 
 All complaints will be reviewed and investigated promptly and fairly.
 

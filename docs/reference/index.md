@@ -13,7 +13,7 @@ ______________________________________________________________________
 
 Auto-generated documentation for all public classes, methods, and modules.
 
-[:octicons-arrow-right-24: Python API Reference](api.md)
+[:octicons-arrow-right-24: Python API Reference](api/template_python/)
 
 </div>
 
@@ -34,11 +34,11 @@ Run `hatch run test:all-cov` to generate HTML reports locally, or view the lates
 
 ## Python API Usage
 
-`project_name` can also be used programmatically in your own Python scripts:
+`template-python` can also be used programmatically in your own Python scripts:
 
 ```python
-from project_name import Settings, configure_logger, logger
-from project_name.logging import LoggingSettings
+from template_python import Settings, configure_logger, logger
+from template_python.logging import LoggingSettings
 
 # Initialize the global logger
 configure_logger(LoggingSettings(enabled=True, level="INFO"))

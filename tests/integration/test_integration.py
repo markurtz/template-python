@@ -1,4 +1,4 @@
-"""Integration tests for the project_name core modules."""
+"""Integration tests for the template_python core modules."""
 
 from __future__ import annotations
 
@@ -7,10 +7,10 @@ from io import StringIO
 
 import pytest
 
-import project_name.logging as logging_module
-from project_name.__main__ import main
-from project_name.logging import LoggingSettings, configure_logger
-from project_name.version import (
+import template_python.logging as logging_module
+from template_python.__main__ import main
+from template_python.logging import LoggingSettings, configure_logger
+from template_python.version import (
     __BUILD_METADATA__,
     __GIT_METADATA__,
     __VERSION_METADATA__,
@@ -44,7 +44,7 @@ class TestMain:
             settings.enqueue = False
             original_configure(settings)
 
-        monkeypatch.setattr("project_name.__main__.configure_logger", mock_configure)
+        monkeypatch.setattr("template_python.__main__.configure_logger", mock_configure)
 
         result = main()
 

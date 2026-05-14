@@ -1,6 +1,6 @@
 # Community
 
-`project_name` is an open-source project and we welcome participation from everyone. This section contains all the resources you need to get involved, stay informed, and interact with the community.
+`template-python` is an open-source project and we welcome participation from everyone. This section contains all the resources you need to get involved, stay informed, and interact with the community.
 
 ## Get Involved
 
@@ -70,5 +70,7 @@ Where to ask questions, report issues, and find help.
 | :--------------------------------------------------------------------------------------- | :--------------------------------------------- |
 | <a href="https://github.com/markurtz/template-python/issues">GitHub Issues</a>           | Bug reports and feature requests               |
 | <a href="https://github.com/markurtz/template-python/discussions">GitHub Discussions</a> | Q&A, ideas, and general community conversation |
-| <a href="{{ slack_url }}">Slack</a>                                                      | Real-time chat with the team and community     |
-| <a href="{{ blog_url }}">Blog</a>                                                        | Project updates, tutorials, and announcements  |
+
+<!-- | <a href="{{ slack_url }}">Slack</a>                                                      | Real-time chat with the team and community     | -->
+
+<!-- | <a href="{{ blog_url }}">Blog</a>                                                        | Project updates, tutorials, and announcements  | -->

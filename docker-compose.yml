@@ -1,6 +1,6 @@
 ---
 # ---------------------------------------------------------
-# project_name Docker Compose
+# template-python Docker Compose
 # Licensed under the Apache License, Version 2.0
 # ---------------------------------------------------------
 services:
@@ -19,7 +19,7 @@ services:
     command:
       - "python"
       - "-m"
-      - "project_name"
+      - "template_python"
 
   # Standard Database Profile
   # Use `docker-compose --profile db up` to start this service

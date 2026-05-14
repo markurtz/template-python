@@ -1,4 +1,4 @@
-# Quick Start
+# Quick Start  TODO: need to change quickstart doc to be for this specific template walkthrough rather than general purpose quickstart
 
 This guide gets you from a fresh installation to running your first command in under 5 minutes.
 
@@ -12,27 +12,27 @@ If you haven't already, set up your project and install `template-python`:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install project_name
+pip install template-python
 ```
 
 ## Step 2 — Verify the Install
 
 ```bash
-project_name
+template-python
 ```
 
 Expected output:
 
 ```console
-Hello from project_name v0.1.0!
+Hello from template_python v0.1.0!
 Settings: Settings(environment='development', project_root=PosixPath('...'))
 ```
 
 ## Step 3 — Run Your First Command
 
 ```python
-from project_name import Settings, configure_logger, logger
-from project_name.logging import LoggingSettings
+from template_python import Settings, configure_logger, logger
+from template_python.logging import LoggingSettings
 
 # Initialize the global logger
 configure_logger(LoggingSettings(enabled=True, level="INFO"))

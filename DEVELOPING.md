@@ -1,4 +1,4 @@
-# Developing `project_name`
+# Developing `template-python`
 
 This guide provides instructions for setting up your development environment, navigating the project structure, and adhering to our coding standards.
 
@@ -22,8 +22,8 @@ Ensure your system meets the following requirements before getting started:
 > Once implemented, you can spin up the development environment with:
 >
 > ```bash
-> git clone https://github.com/markurtz/project_name.git
-> cd project_name
+> git clone https://github.com/markurtz/template-python.git
+> cd template-python
 >
 > # Build and start the development environment in the background
 > docker-compose up -d --build

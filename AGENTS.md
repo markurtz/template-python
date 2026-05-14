@@ -5,7 +5,7 @@
 
 ## Project Context
 
-**`project_name`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
+**`template-python`** is a production-ready Apache 2.0 template repository for bootstrapping modern software projects.
 **Primary language:** `Python 3.10+`\
 **Package manager:** `Hatch`
 
@@ -54,7 +54,7 @@
 
 - **`docs/`** and **`mkdocs.yml`** control the site. Do not create docs outside the `nav:` tree.
 - `docs/index.md` dynamically includes `README.md` via MkDocs snippets.
-- Use `{{placeholder}}` variables for templated fields (e.g., `project_name`, `markurtz`).
+- Use `{{placeholder}}` variables for templated fields (e.g., `template-python`, `markurtz`).
 
 ## Agent Notes
 
